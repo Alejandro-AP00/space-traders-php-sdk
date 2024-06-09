@@ -3,57 +3,35 @@
 namespace AlejandroAPorras\SpaceTraders;
 
 use Exception;
-use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 trait MakesHttpRequests
 {
-    /**
-     * Make a GET request to Forge servers and return the response.
-     *
-     * @throws GuzzleException
-     */
     public function get(string $uri): mixed
     {
         return $this->request('GET', $uri);
     }
 
-    /**
-     * Make a POST request to Forge servers and return the response.
-     *
-     * @throws GuzzleException
-     */
     public function post(string $uri, array $payload = []): mixed
     {
         return $this->request('POST', $uri, $payload);
     }
 
-    /**
-     * Make a PUT request to Forge servers and return the response.
-     *
-     * @throws GuzzleException
-     */
     public function put(string $uri, array $payload = []): mixed
     {
         return $this->request('PUT', $uri, $payload);
     }
 
-    /**
-     * Make a DELETE request to Forge servers and return the response.
-     *
-     * @throws GuzzleException
-     */
+    public function patch(string $uri, array $payload = []): mixed
+    {
+        return $this->request('PATCH', $uri, $payload);
+    }
+
     public function delete(string $uri, array $payload = []): mixed
     {
         return $this->request('DELETE', $uri, $payload);
     }
 
-    /**
-     * Make request to Forge servers and return the response.
-     *
-     * @throws GuzzleException
-     * @throws Exception
-     */
     protected function request(string $verb, string $uri, array $payload = []): mixed
     {
         if (isset($payload['json'])) {
@@ -107,5 +85,19 @@ trait MakesHttpRequests
         //            );
         //        }
         throw new Exception((string) $response->getBody());
+    }
+
+    protected function buildFilterString(array $filters): string
+    {
+        if (count($filters) === 0) {
+            return '';
+        }
+
+        $preparedFilters = [];
+        foreach ($filters as $name => $value) {
+            $preparedFilters[$name] = urlencode($value);
+        }
+
+        return '?'.http_build_query($preparedFilters);
     }
 }

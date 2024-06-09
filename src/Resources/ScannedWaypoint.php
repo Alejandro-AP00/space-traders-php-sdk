@@ -24,6 +24,9 @@ class ScannedWaypoint extends Resource
 
     public Faction $faction;
 
+    /**
+     * @var WaypointTrait[]
+     */
     public array $traits;
 
     public Chart $chart;

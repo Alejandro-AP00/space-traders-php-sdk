@@ -3,13 +3,24 @@
 namespace AlejandroAPorras\SpaceTraders;
 
 use AlejandroAPorras\SpaceTraders\Actions\ManagesAgents;
+use AlejandroAPorras\SpaceTraders\Actions\ManagesContracts;
+use AlejandroAPorras\SpaceTraders\Actions\ManagesFactions;
+use AlejandroAPorras\SpaceTraders\Actions\ManagesFleet;
 use AlejandroAPorras\SpaceTraders\Actions\ManagesRegistrations;
 use AlejandroAPorras\SpaceTraders\Actions\ManagesStatuses;
+use AlejandroAPorras\SpaceTraders\Actions\ManagesSystems;
 use GuzzleHttp\Client;
 
 class SpaceTraders
 {
-    use MakesHttpRequests, ManagesAgents, ManagesRegistrations, ManagesStatuses;
+    use MakesHttpRequests,
+        ManagesAgents,
+        ManagesContracts,
+        ManagesFactions,
+        ManagesFleet,
+        ManagesRegistrations,
+        ManagesStatuses,
+        ManagesSystems;
 
     protected string $token;
 
@@ -27,6 +38,7 @@ class SpaceTraders
         $this->token = $token;
 
         $this->client = $guzzle ?: new Client([
+            'http_errors' => false,
             'base_uri' => 'https://api.spacetraders.io/v2/',
             'headers' => [
                 'Authorization' => 'Bearer '.$this->token,

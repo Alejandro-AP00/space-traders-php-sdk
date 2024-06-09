@@ -9,29 +9,28 @@ trait ManagesAgents
 {
     public function agent(): Agent
     {
-        $response = $this->get('my/agent');
-        $data = $response['data'];
+        ['data' => $data] = $this->get('my/agent');
 
-        return new Agent($data);
+        return new Agent($data, $this);
     }
 
     /**
      * @return PaginatedResults<Agent>
      */
-    public function agents(): PaginatedResults
+    public function agents(array $filters = []): PaginatedResults
     {
         return PaginatedResults::make(
             'agents',
             Agent::class,
-            $this
+            $this,
+            $filters
         );
     }
 
     public function publicAgent(string $agent): Agent
     {
-        $response = $this->get('agents/'.$agent);
-        $data = $response['data'];
+        ['data' => $data] = $this->get("agents/{$agent}");
 
-        return new Agent($data);
+        return new Agent($data, $this);
     }
 }

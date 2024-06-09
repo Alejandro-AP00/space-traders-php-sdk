@@ -7,13 +7,9 @@ use AlejandroAPorras\SpaceTraders\Resources\Agent;
 use AlejandroAPorras\SpaceTraders\Resources\Contract;
 use AlejandroAPorras\SpaceTraders\Resources\Faction;
 use AlejandroAPorras\SpaceTraders\Resources\Ship;
-use GuzzleHttp\Exception\GuzzleException;
 
 trait ManagesRegistrations
 {
-    /**
-     * @throws GuzzleException
-     */
     public function register(FactionSymbol $faction, string $agent, ?string $email = null): object
     {
         $response = $this->post('register', [

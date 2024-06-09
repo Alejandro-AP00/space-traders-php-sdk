@@ -19,11 +19,19 @@ class Shipyard extends Resource
      */
     public array $transactions;
 
+    /**
+     * @var ShipyardShip[]
+     */
+    public array $ships;
+
+    public int $modificationsFee;
+
     public function __construct(array $attributes, ?SpaceTraders $spaceTraders = null)
     {
         parent::__construct($attributes, $spaceTraders);
 
         $this->shipTypes = array_map(fn ($shipType) => ShipType::from($shipType), $this->shipTypes);
         $this->transactions = $this->transformCollection($this->transactions ?: [], ShipyardTransaction::class);
+        $this->ships = $this->transformCollection($this->ships ?: [], ShipyardShip::class);
     }
 }

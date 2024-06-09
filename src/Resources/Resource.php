@@ -52,7 +52,9 @@ class Resource
         $properties = [];
 
         foreach ($publicProperties as $key => $value) {
-            $properties[$this->snakeCase($key)] = $value;
+            $value = is_object($value) && property_exists($value, 'toArray') ? $value->toArray() : $value;
+
+            $properties[$this->camelCase($key)] = $value;
         }
 
         return $properties;
