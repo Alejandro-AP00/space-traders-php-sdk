@@ -12,20 +12,18 @@ trait ManagesRegistrations
 {
     public function register(FactionSymbol $faction, string $agent, ?string $email = null): object
     {
-        $response = $this->post('register', [
+        ['data' => $data] = $this->post('register', [
             'faction' => $faction->value,
             'symbol' => $agent,
             'email' => $email,
         ]);
-        $data = $response['data'];
-        dump($data);
 
         return (object) [
             'agent' => new Agent($data['agent'], $this),
-            //            'contract' => new Contract($data['contract'], $this),
-            //            'faction' => new Faction($data['faction'], $this),
-            //            'ship' => new Ship($data['ship'], $this),
-            //            'token' => $data['token'],
+            'contract' => new Contract($data['contract'], $this),
+            'faction' => new Faction($data['faction'], $this),
+            'ship' => new Ship($data['ship'], $this),
+            'token' => $data['token'],
         ];
     }
 }
