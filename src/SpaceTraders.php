@@ -2,13 +2,14 @@
 
 namespace AlejandroAPorras\SpaceTraders;
 
+use AlejandroAPorras\SpaceTraders\Actions\ManagesAgents;
 use AlejandroAPorras\SpaceTraders\Actions\ManagesRegistrations;
 use AlejandroAPorras\SpaceTraders\Actions\ManagesStatuses;
 use GuzzleHttp\Client;
 
 class SpaceTraders
 {
-    use MakesHttpRequests, ManagesRegistrations, ManagesStatuses;
+    use MakesHttpRequests, ManagesAgents, ManagesRegistrations, ManagesStatuses;
 
     protected string $token;
 
@@ -30,7 +31,6 @@ class SpaceTraders
             'headers' => [
                 'Authorization' => 'Bearer '.$this->token,
                 'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
             ],
         ]);
 

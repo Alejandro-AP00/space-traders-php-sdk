@@ -27,6 +27,6 @@ class ShipMount extends Resource
     {
         parent::__construct($attributes, $spaceTraders);
 
-        $this->deposits = array_map(fn ($deposit) => Deposits::from($deposit), $this->deposits);
+        $this->deposits = array_map(fn ($deposit) => Deposits::from($deposit), $attributes['deposits'] ?: []);
     }
 }

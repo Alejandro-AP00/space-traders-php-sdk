@@ -2,6 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Resources;
 
+use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+
 /**
  * Agent details.
  */
@@ -30,7 +32,7 @@ class Agent extends Resource
     /**
      * The faction the agent started with.
      */
-    public string $startingFaction;
+    public FactionSymbol $startingFaction;
 
     /**
      * How many ships are owned by the agent.
