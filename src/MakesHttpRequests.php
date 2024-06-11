@@ -2,6 +2,9 @@
 
 namespace AlejandroAPorras\SpaceTraders;
 
+use AlejandroAPorras\SpaceTraders\Exceptions\FailedActionException;
+use AlejandroAPorras\SpaceTraders\Exceptions\NotFoundException;
+use AlejandroAPorras\SpaceTraders\Exceptions\RateLimitExceededException;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
 
@@ -56,34 +59,28 @@ trait MakesHttpRequests
     /**
      * Handle the request error.
      *
-     *
      * @throws Exception
-//     * @throws \Laravel\Forge\Exceptions\FailedActionException
-//     * @throws \Laravel\Forge\Exceptions\NotFoundException
-//     * @throws \Laravel\Forge\Exceptions\ValidationException
-//     * @throws \Laravel\Forge\Exceptions\RateLimitExceededException
+     * @throws NotFoundException
+     * @throws FailedActionException
+     * @throws RateLimitExceededException
      */
     protected function handleRequestError(ResponseInterface $response): void
     {
-        //        if ($response->getStatusCode() == 422) {
-        //            throw new ValidationException(json_decode((string) $response->getBody(), true));
-        //        }
-        //
-        //        if ($response->getStatusCode() == 404) {
-        //            throw new NotFoundException();
-        //        }
-        //
-        //        if ($response->getStatusCode() == 400) {
-        //            throw new FailedActionException((string) $response->getBody());
-        //        }
-        //
-        //        if ($response->getStatusCode() === 429) {
-        //            throw new RateLimitExceededException(
-        //                $response->hasHeader('x-ratelimit-reset')
-        //                    ? (int) $response->getHeader('x-ratelimit-reset')[0]
-        //                    : null
-        //            );
-        //        }
+        if ($response->getStatusCode() == 404) {
+            throw new NotFoundException();
+        }
+
+        if ($response->getStatusCode() === 400) {
+            throw new FailedActionException(json_decode($response->getBody(), true)['error']);
+        }
+
+        if ($response->getStatusCode() === 429) {
+            throw new RateLimitExceededException(
+                $response->hasHeader('x-ratelimit-reset')
+                    ? (int) $response->getHeader('x-ratelimit-reset')[0]
+                    : null
+            );
+        }
         throw new Exception((string) $response->getBody());
     }
 
