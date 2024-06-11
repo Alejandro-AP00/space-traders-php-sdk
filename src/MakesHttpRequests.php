@@ -5,6 +5,7 @@ namespace AlejandroAPorras\SpaceTraders;
 use AlejandroAPorras\SpaceTraders\Exceptions\FailedActionException;
 use AlejandroAPorras\SpaceTraders\Exceptions\NotFoundException;
 use AlejandroAPorras\SpaceTraders\Exceptions\RateLimitExceededException;
+use AlejandroAPorras\SpaceTraders\Exceptions\ValidationException;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
 
@@ -66,8 +67,12 @@ trait MakesHttpRequests
      */
     protected function handleRequestError(ResponseInterface $response): void
     {
-        if ($response->getStatusCode() == 404) {
+        if ($response->getStatusCode() === 404) {
             throw new NotFoundException();
+        }
+
+        if ($response->getStatusCode() === 422) {
+            throw new ValidationException(json_decode($response->getBody(), true)['error']);
         }
 
         if ($response->getStatusCode() === 400) {
