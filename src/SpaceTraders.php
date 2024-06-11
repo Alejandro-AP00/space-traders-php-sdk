@@ -22,15 +22,13 @@ class SpaceTraders
         ManagesStatuses,
         ManagesSystems;
 
-    protected string $token;
+    protected ?string $token;
 
     public Client $client;
 
-    public function __construct($token = null)
+    public function __construct($token)
     {
-        if (! is_null($token)) {
-            $this->setToken($token);
-        }
+        $this->setToken($token);
     }
 
     public function setToken($token, $guzzle = null): static
@@ -41,7 +39,7 @@ class SpaceTraders
             'http_errors' => false,
             'base_uri' => 'https://api.spacetraders.io/v2/',
             'headers' => [
-                'Authorization' => 'Bearer '.$this->token,
+                'Authorization' => 'Bearer '.$this->token ?? '',
                 'Accept' => 'application/json',
             ],
         ]);
