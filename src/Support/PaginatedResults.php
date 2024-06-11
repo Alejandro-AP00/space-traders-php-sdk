@@ -70,14 +70,18 @@ class PaginatedResults implements ArrayAccess, IteratorAggregate
 
     public function nextPage(): ?array
     {
-        $total_pages = ceil($this->meta['total'] / $this->meta['limit']);
-        if ($this->meta['page'] === $total_pages) {
+        if ($this->meta['page'] === $this->totalPages()) {
             return null;
         }
 
         $page = $this->meta['page'] + 1;
 
         return ['page' => $page];
+    }
+
+    public function totalPages(): int
+    {
+        return ceil($this->meta['total'] / $this->meta['limit']);
     }
 
     public function previous(): ?self
