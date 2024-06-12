@@ -19,12 +19,12 @@ trait ManagesSystems
      */
     public function systems(array $filter = []): PaginatedResults
     {
-        return PaginatedResults::make('/systems', System::class, $this, $filter);
+        return PaginatedResults::make('systems', System::class, $this, $filter);
     }
 
     public function system(string $systemSymbol): System
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}");
 
         return new System($data, $this);
     }
@@ -34,40 +34,40 @@ trait ManagesSystems
      */
     public function waypoints(string $systemSymbol, $filters = []): PaginatedResults
     {
-        return PaginatedResults::make("/systems/{$systemSymbol}/waypoints", Waypoint::class, $this, $filters);
+        return PaginatedResults::make("systems/{$systemSymbol}/waypoints", Waypoint::class, $this, $filters);
     }
 
     public function waypoint(string $systemSymbol, string $waypointSymbol): Waypoint
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}/waypoints/{$waypointSymbol}");
 
         return new Waypoint($data, $this);
     }
 
     public function market(string $systemSymbol, string $waypointSymbol): Market
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}/market");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}/waypoints/{$waypointSymbol}/market");
 
         return new Market($data, $this);
     }
 
     public function shipyard(string $systemSymbol, string $waypointSymbol): Shipyard
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}/shipyard");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}/waypoints/{$waypointSymbol}/shipyard");
 
         return new Shipyard($data, $this);
     }
 
     public function jumpGate(string $systemSymbol, string $waypointSymbol): JumpGate
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}/jump-gate");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}/waypoints/{$waypointSymbol}/jump-gate");
 
         return new JumpGate($data, $this);
     }
 
     public function construction(string $systemSymbol, string $waypointSymbol): Construction
     {
-        ['data' => $data] = $this->get("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}/construction");
+        ['data' => $data] = $this->get("systems/{$systemSymbol}/waypoints/{$waypointSymbol}/construction");
 
         return new Construction($data, $this);
     }
@@ -77,7 +77,7 @@ trait ManagesSystems
      */
     public function supplyConstruction(string $systemSymbol, string $waypointSymbol, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
     {
-        ['data' => $data] = $this->post("/systems/{$systemSymbol}/waypoints/{$waypointSymbol}/construction/supply", [
+        ['data' => $data] = $this->post("systems/{$systemSymbol}/waypoints/{$waypointSymbol}/construction/supply", [
             'shipSymbol' => $shipSymbol,
             'tradeSymbol' => $tradeSymbol,
             'units' => $units,

@@ -23,7 +23,7 @@ trait ManagesFactions
 
     public function faction(FactionSymbol $factionSymbol): Faction
     {
-        ['data' => $data] = $this->get("/factions/{$factionSymbol->value}");
+        ['data' => $data] = $this->get("factions/{$factionSymbol->value}");
 
         return new Faction($data, $this);
     }
