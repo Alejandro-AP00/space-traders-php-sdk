@@ -2,6 +2,13 @@
 
 All notable changes to `space-traders-php-sdk` will be documented in this file.
 
+## v0.3.0 - 2024-06-13
+
+- Fixed issues with some routes
+- Added missing resource details to ContractPayment
+
+**Full Changelog**: https://github.com/Alejandro-AP00/space-traders-php-sdk/compare/v0.2.0...v0.3.0
+
 ## v0.2.0 - 2024-06-11
 
 ### What's Changed
