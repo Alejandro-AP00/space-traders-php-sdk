@@ -4,9 +4,9 @@ namespace AlejandroAPorras\SpaceTraders\Resources;
 
 class ShipRequirements extends Resource
 {
-    public int $power;
+    public ?int $power = null;
 
-    public int $crew;
+    public ?int $crew = null;
 
-    public int $slots;
+    public ?int $slots = null;
 }

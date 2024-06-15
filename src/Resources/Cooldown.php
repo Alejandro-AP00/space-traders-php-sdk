@@ -10,5 +10,5 @@ class Cooldown extends Resource
 
     public int $remainingSeconds;
 
-    public string $expiration;
+    public ?string $expiration = null;
 }
