@@ -203,9 +203,11 @@ trait ManagesFleet
     /**
      * @return array{nav: ShipNav, cooldown: Cooldown, transaction: MarketTransaction, agent: Agent}
      */
-    public function jumpShip(string $shipSymbol): array
+    public function jumpShip(string $shipSymbol, string $waypointSymbol): array
     {
-        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/jump");
+        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/jump", [
+            'waypointSymbol' => $waypointSymbol,
+        ]);
 
         return [
             'nav' => new ShipNav($data['nav'], $this),

@@ -12,14 +12,14 @@ class ShipMount extends Resource
 
     public string $name;
 
-    public string $description;
+    public ?string $description = null;
 
-    public int $strength;
+    public ?int $strength = null;
 
     /**
      * @var Deposits[]
      */
-    public array $deposits;
+    public array $deposits = [];
 
     public ShipRequirements $requirements;
 

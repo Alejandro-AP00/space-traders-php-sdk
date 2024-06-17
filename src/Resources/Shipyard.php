@@ -17,12 +17,12 @@ class Shipyard extends Resource
     /**
      * @var ShipyardTransaction[]
      */
-    public array $transactions;
+    public array $transactions = [];
 
     /**
      * @var ShipyardShip[]
      */
-    public array $ships;
+    public array $ships = [];
 
     public int $modificationsFee;
 
@@ -30,7 +30,7 @@ class Shipyard extends Resource
     {
         parent::__construct($attributes, $spaceTraders);
 
-        $this->shipTypes = array_map(fn ($shipType) => ShipType::from($shipType), $this->shipTypes);
+        $this->shipTypes = array_map(fn ($shipType) => ShipType::from($shipType['type']), $this->shipTypes);
         $this->transactions = $this->transformCollection($this->transactions ?: [], ShipyardTransaction::class);
         $this->ships = $this->transformCollection($this->ships ?: [], ShipyardShip::class);
     }

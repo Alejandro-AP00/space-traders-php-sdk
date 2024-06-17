@@ -20,7 +20,7 @@ class SystemWaypoint extends Resource
      */
     public array $orbitals;
 
-    public string $orbits;
+    public ?string $orbits = null;
 
     public function __construct(array $attributes, ?SpaceTraders $spaceTraders = null)
     {

@@ -8,9 +8,9 @@ class ShipModule extends Resource
 {
     public ShipModuleSymbol $symbol;
 
-    public int $capacity;
+    public ?int $capacity = null;
 
-    public int $range;
+    public ?int $range = null;
 
     public string $name;
 

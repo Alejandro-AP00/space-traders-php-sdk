@@ -26,12 +26,12 @@ class Market extends Resource
     /**
      * @var MarketTransaction[]
      */
-    public array $transactions;
+    public array $transactions = [];
 
     /**
      * @var MarketTradeGood[]
      */
-    public array $tradeGoods;
+    public array $tradeGoods = [];
 
     public function __construct(array $attributes, ?SpaceTraders $spaceTraders = null)
     {
