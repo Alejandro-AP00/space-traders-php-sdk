@@ -127,9 +127,9 @@ class Ship extends Resource
     /**
      * @return array{nav: ShipNav, cooldown: Cooldown, transaction: MarketTransaction, agent: Agent}
      */
-    public function jump(): array
+    public function jump(string $waypointSymbol): array
     {
-        return $this->spaceTraders->jumpShip($this->symbol);
+        return $this->spaceTraders->jumpShip($this->symbol, $waypointSymbol);
     }
 
     /**
