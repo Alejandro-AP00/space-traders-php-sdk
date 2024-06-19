@@ -44,8 +44,7 @@ class PaginatedResults implements ArrayAccess, IteratorAggregate
         protected SpaceTraders $spaceTraders,
         protected string $mappingClass,
         protected array $filters = [],
-    ) {
-    }
+    ) {}
 
     public function results(): array
     {
