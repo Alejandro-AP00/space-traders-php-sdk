@@ -98,9 +98,9 @@ class Ship extends Resource
     /**
      * @return array{cooldown: Cooldown, extraction: Extraction, cargo: ShipCargo, events: ShipConditionEvent[]}
      */
-    public function extractResources(Survey $survey): array
+    public function extractResources(): array
     {
-        return $this->spaceTraders->extractResources($this->symbol, $survey);
+        return $this->spaceTraders->extractResources($this->symbol);
     }
 
     /**
