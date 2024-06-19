@@ -2,6 +2,12 @@
 
 All notable changes to `space-traders-php-sdk` will be documented in this file.
 
+## v0.5.0 - 2024-06-19
+
+- Remove deprecated survey of extractResources method
+
+**Full Changelog**: https://github.com/Alejandro-AP00/space-traders-php-sdk/compare/v0.4.0...v0.5.0
+
 ## v0.4.0 - 2024-06-17
 
 - Many bugfixes
