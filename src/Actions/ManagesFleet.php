@@ -42,7 +42,7 @@ trait ManagesFleet
     }
 
     /**
-     * @return array{agent: Agent, ship: Ship, }
+     * @return array{agent: Agent, ship: Ship, transaction: ShipyardTransaction }
      */
     public function purchaseShip(ShipType $shipType, string $waypointSymbol): array
     {
@@ -143,9 +143,9 @@ trait ManagesFleet
     /**
      * @return array{cooldown: Cooldown, extraction: Extraction, cargo: ShipCargo, events: ShipConditionEvent[]}
      */
-    public function extractResources(string $shipSymbol, Survey $survey): array
+    public function extractResources(string $shipSymbol): array
     {
-        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/extract", ['survey' => $survey->toArray()]);
+        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/extract");
 
         return [
             'cooldown' => new Cooldown($data['cooldown'], $this),
