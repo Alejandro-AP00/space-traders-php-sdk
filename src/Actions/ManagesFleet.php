@@ -289,7 +289,7 @@ trait ManagesFleet
     }
 
     /**
-     * @return array{systems: ScannedWaypoint[], cooldown: Cooldown}
+     * @return array{waypoints: ScannedWaypoint[], cooldown: Cooldown}
      */
     public function scanWaypoints(string $shipSymbol): array
     {

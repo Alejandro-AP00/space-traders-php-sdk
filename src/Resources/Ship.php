@@ -175,7 +175,7 @@ class Ship extends Resource
     }
 
     /**
-     * @return array{systems: ScannedWaypoint[], cooldown: Cooldown}
+     * @return array{waypoints: ScannedWaypoint[], cooldown: Cooldown}
      */
     public function scanWaypoints(): array
     {
