@@ -372,7 +372,7 @@ trait ManagesFleet
         ['data' => $data] = $this->post("my/ships/{$shipSymbol}/negotiate/contract");
 
         return [
-            'contract' => new Contract($data['cooldown'], $this),
+            'contract' => new Contract($data['contract'], $this),
         ];
     }
 

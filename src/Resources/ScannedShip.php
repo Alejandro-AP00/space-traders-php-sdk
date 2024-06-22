@@ -10,11 +10,11 @@ class ScannedShip extends Resource
 
     public ShipNav $nav;
 
-    public array $frame;
+    public ?array $frame = [];
 
-    public array $reactor;
+    public ?array $reactor = [];
 
     public array $engine;
 
-    public array $mounts;
+    public ?array $mounts = [];
 }

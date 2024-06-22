@@ -20,8 +20,6 @@ class Contract extends Resource
 
     public bool $fulfilled;
 
-    public string $expiration;
-
     public string $deadlineToAccept;
 
     /**
