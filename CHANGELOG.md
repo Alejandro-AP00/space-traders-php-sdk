@@ -2,6 +2,12 @@
 
 All notable changes to `space-traders-php-sdk` will be documented in this file.
 
+## v0.7.0 - 2024-06-22
+
+Various bugfixes
+
+**Full Changelog**: https://github.com/Alejandro-AP00/space-traders-php-sdk/compare/v0.6.0...v0.7.0
+
 ## v0.6.0 - 2024-06-22
 
 **Full Changelog**: https://github.com/Alejandro-AP00/space-traders-php-sdk/compare/v0.5.0...v0.6.0
