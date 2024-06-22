@@ -37,6 +37,8 @@ class Ship extends Resource
 
     public ShipCargo $cargo;
 
+    public ShipFuel $fuel;
+
     public function __construct(array $attributes, ?SpaceTraders $spaceTraders = null)
     {
         parent::__construct($attributes, $spaceTraders);
