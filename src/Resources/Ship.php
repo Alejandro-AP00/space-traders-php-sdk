@@ -193,7 +193,7 @@ class Ship extends Resource
     /**
      * @return array{fuel: ShipFuel, transaction: MarketTransaction, agent: Agent}
      */
-    public function refuel(int $units, bool $fromCargo = false): array
+    public function refuel(?int $units, ?bool $fromCargo = false): array
     {
         return $this->spaceTraders->refuelShip($this->symbol, $units, $fromCargo);
     }

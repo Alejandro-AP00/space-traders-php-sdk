@@ -317,12 +317,19 @@ trait ManagesFleet
     /**
      * @return array{fuel: ShipFuel, transaction: MarketTransaction, agent: Agent}
      */
-    public function refuelShip(string $shipSymbol, int $units, bool $fromCargo = false): array
+    public function refuelShip(string $shipSymbol, ?int $units, ?bool $fromCargo = false): array
     {
-        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/refuel", [
-            'fromCargo' => $fromCargo,
-            'units' => $units,
-        ]);
+        $payload = [];
+
+        if (! empty($units)) {
+            $payload['units'] = $units;
+        }
+
+        if (! empty($fromCargo)) {
+            $payload['fromCargo'] = $fromCargo;
+        }
+
+        ['data' => $data] = $this->post("my/ships/{$shipSymbol}/refuel", $payload);
 
         return [
             'transaction' => new MarketTransaction($data['transaction'], $this),
