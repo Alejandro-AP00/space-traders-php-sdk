@@ -47,7 +47,7 @@ trait ManagesFleet
     public function purchaseShip(ShipType $shipType, string $waypointSymbol): array
     {
         ['data' => $data] = $this->post('my/ships', [
-            'shipType' => $shipType,
+            'shipType' => $shipType->value,
             'waypointSymbol' => $waypointSymbol,
         ]);
 
