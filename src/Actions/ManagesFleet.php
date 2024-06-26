@@ -128,7 +128,7 @@ trait ManagesFleet
     }
 
     /**
-     * @return array{chart: Cooldown, surveys: Survey[]}
+     * @return array{cooldown: Cooldown, surveys: Survey[]}
      */
     public function createSurvey(string $shipSymbol): array
     {

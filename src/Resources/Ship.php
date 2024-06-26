@@ -90,7 +90,7 @@ class Ship extends Resource
     }
 
     /**
-     * @return array{chart: Cooldown, surveys: Survey[]}
+     * @return array{cooldown: Cooldown, surveys: Survey[]}
      */
     public function survey(): array
     {
