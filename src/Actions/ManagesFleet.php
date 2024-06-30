@@ -191,7 +191,7 @@ trait ManagesFleet
     public function jettisonCargo(string $shipSymbol, TradeGoodSymbol $symbol, int $units): array
     {
         ['data' => $data] = $this->post("my/ships/{$shipSymbol}/siphon", [
-            'symbol' => $symbol,
+            'symbol' => $symbol->value,
             'units' => $units,
         ]);
 
@@ -264,7 +264,7 @@ trait ManagesFleet
     public function sellCargo(string $shipSymbol, TradeGoodSymbol $tradeGoodSymbol, int $units): array
     {
         ['data' => $data] = $this->post("my/ships/{$shipSymbol}/sell", [
-            'symbol' => $tradeGoodSymbol,
+            'symbol' => $tradeGoodSymbol->value,
             'units' => $units,
         ]);
 
@@ -344,7 +344,7 @@ trait ManagesFleet
     public function purchaseCargo(string $shipSymbol, TradeGoodSymbol $tradeGoodSymbol, int $units): array
     {
         ['data' => $data] = $this->post("my/ships/{$shipSymbol}/purchase", [
-            'symbol' => $tradeGoodSymbol,
+            'symbol' => $tradeGoodSymbol->value,
             'units' => $units,
         ]);
 
@@ -361,7 +361,7 @@ trait ManagesFleet
     public function transferCargo(string $shipSymbol, TradeGoodSymbol $tradeGoodSymbol, int $units, string $transferShipSymbol): array
     {
         ['data' => $data] = $this->post("my/ships/{$shipSymbol}/transfer", [
-            'symbol' => $tradeGoodSymbol,
+            'symbol' => $tradeGoodSymbol->value,
             'units' => $units,
             'shipSymbol' => $transferShipSymbol,
         ]);
