@@ -17,7 +17,7 @@ class MarketTradeGood extends Resource
 
     public SupplyLevel $supply;
 
-    public ActivityLevel $activity;
+    public ?ActivityLevel $activity = null;
 
     public int $purchasePrice;
 
