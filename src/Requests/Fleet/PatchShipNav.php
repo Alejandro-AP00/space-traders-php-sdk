@@ -1,0 +1,39 @@
+<?php
+
+namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
+
+use DateTime;
+use Saloon\Contracts\Body\HasBody;
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
+
+/**
+ * patch-ship-nav
+ *
+ * Update the nav configuration of a ship.
+ *
+ * Currently only supports configuring the Flight Mode of the
+ * ship, which affects its speed and fuel consumption.
+ */
+class PatchShipNav extends Request implements HasBody
+{
+	use HasJsonBody;
+
+	protected Method $method = Method::PATCH;
+
+
+	public function resolveEndpoint(): string
+	{
+		return "/my/ships/{$this->shipSymbol}/nav";
+	}
+
+
+	/**
+	 * @param string $shipSymbol The ship symbol.
+	 */
+	public function __construct(
+		protected string $shipSymbol,
+	) {
+	}
+}

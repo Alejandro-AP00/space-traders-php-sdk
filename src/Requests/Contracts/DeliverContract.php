@@ -1,0 +1,43 @@
+<?php
+
+namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts;
+
+use DateTime;
+use Saloon\Contracts\Body\HasBody;
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
+
+/**
+ * deliver-contract
+ *
+ * Deliver cargo to a contract.
+ *
+ * In order to use this API, a ship must be at the delivery location
+ * (denoted in the delivery terms as `destinationSymbol` of a contract) and must have a number of units
+ * of a good required by this contract in its cargo.
+ *
+ * Cargo that was delivered will be removed from the
+ * ship's cargo.
+ */
+class DeliverContract extends Request implements HasBody
+{
+	use HasJsonBody;
+
+	protected Method $method = Method::POST;
+
+
+	public function resolveEndpoint(): string
+	{
+		return "/my/contracts/{$this->contractId}/deliver";
+	}
+
+
+	/**
+	 * @param string $contractId The ID of the contract.
+	 */
+	public function __construct(
+		protected string $contractId,
+	) {
+	}
+}
