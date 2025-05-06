@@ -1,10 +1,11 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Resources;
+namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
+use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 
-class ShipModificationTransaction extends Resource
+class ShipModificationTransactionData extends DataResource
 {
     public string $waypointSymbol;
 
