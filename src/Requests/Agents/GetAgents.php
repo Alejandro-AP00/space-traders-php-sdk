@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Agents;
 
-use AlejandroAPorras\SpaceTraders\Responses\AgentsResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Agents\AgentsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;

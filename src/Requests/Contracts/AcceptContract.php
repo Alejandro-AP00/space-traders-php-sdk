@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
-use AlejandroAPorras\SpaceTraders\Responses\AcceptContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\AcceptContractResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

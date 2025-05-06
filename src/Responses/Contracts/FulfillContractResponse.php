@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Responses;
+namespace AlejandroAPorras\SpaceTraders\Responses\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
 use AlejandroAPorras\SpaceTraders\Data\Contracts\ContractData;

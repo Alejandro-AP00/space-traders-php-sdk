@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Agents;
 
-use AlejandroAPorras\SpaceTraders\Responses\AgentResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Agents\AgentResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 

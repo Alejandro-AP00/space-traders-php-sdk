@@ -3,7 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
-use AlejandroAPorras\SpaceTraders\Responses\DeliverContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\DeliverContractResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

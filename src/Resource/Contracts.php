@@ -12,9 +12,10 @@ use AlejandroAPorras\SpaceTraders\Requests\Contracts\FulfillContract;
 use AlejandroAPorras\SpaceTraders\Requests\Contracts\GetContract;
 use AlejandroAPorras\SpaceTraders\Requests\Contracts\GetContracts;
 use AlejandroAPorras\SpaceTraders\Resource;
-use AlejandroAPorras\SpaceTraders\Responses\AcceptContractResponse;
-use AlejandroAPorras\SpaceTraders\Responses\DeliverContractResponse;
-use AlejandroAPorras\SpaceTraders\Responses\FulfillContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\ContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\AcceptContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\DeliverContractResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Contracts\FulfillContractResponse;
 use Saloon\PaginationPlugin\PagedPaginator;
 
 class Contracts extends Resource
@@ -31,47 +32,35 @@ class Contracts extends Resource
      * @param  string  $contractId  The contract ID
      * @return ContractData
      */
-    public function getContract(string $contractId): ContractData
+    public function getContract(string $contractId): ContractResponse
     {
-        return $this->connector->send(new GetContract($contractId))->contract();
+        return $this->connector->send(new GetContract($contractId));
     }
 
     /**
      * @param  string  $contractId  The contract ID to accept.
      * @return array{agent: AgentData, contract: ContractData}
      */
-    public function acceptContract(string $contractId): array
+    public function acceptContract(string $contractId): AcceptContractResponse
     {
-        $response = $this->connector->send(new AcceptContract($contractId));
-        return [
-            'agent' => $response->agent(),
-            'contract' => $response->contract(),
-        ];
+        return $this->connector->send(new AcceptContract($contractId));
     }
 
     /**
      * @param  string  $contractId  The ID of the contract.
      * @return array{cargo: ShipCargoData, contract: ContractData}
      */
-    public function deliverContract(string $contractId, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
+    public function deliverContract(string $contractId, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): DeliverContractResponse
     {
-        $response = $this->connector->send(new DeliverContract($contractId, $shipSymbol, $tradeSymbol, $units));
-        return [
-            'cargo' => $response->cargo(),
-            'contract' => $response->contract(),
-        ];
+        return $this->connector->send(new DeliverContract($contractId, $shipSymbol, $tradeSymbol, $units));
     }
 
     /**
      * @param  string  $contractId  The ID of the contract to fulfill.
      * @return array{agent: AgentData, contract: ContractData}
      */
-    public function fulfillContract(string $contractId): array
+    public function fulfillContract(string $contractId): FulfillContractResponse
     {
-        $response = $this->connector->send(new FulfillContract($contractId));
-        return [
-            'agent' => $response->agent(),
-            'contract' => $response->contract(),
-        ];
+        return $this->connector->send(new FulfillContract($contractId));
     }
 }
