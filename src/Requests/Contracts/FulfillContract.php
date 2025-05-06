@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,22 +14,19 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class FulfillContract extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/contracts/{$this->contractId}/fulfill";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/contracts/{$this->contractId}/fulfill";
-	}
-
-
-	/**
-	 * @param string $contractId The ID of the contract to fulfill.
-	 */
-	public function __construct(
-		protected string $contractId,
-	) {
-	}
+    /**
+     * @param  string  $contractId  The ID of the contract to fulfill.
+     */
+    public function __construct(
+        protected string $contractId,
+    ) {}
 }

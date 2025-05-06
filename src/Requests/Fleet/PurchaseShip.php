@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Enums\ShipType;
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -22,20 +21,16 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class PurchaseShip extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return '/my/ships';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships";
-	}
-
-
-	public function __construct(protected ShipType $shipType, protected string $waypointSymbol)
-	{
-	}
+    public function __construct(protected ShipType $shipType, protected string $waypointSymbol) {}
 
     protected function defaultBody(): array
     {

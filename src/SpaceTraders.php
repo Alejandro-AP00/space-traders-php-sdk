@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk;
 
-use Saloon\Http\Connector;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Agents;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Contracts;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Data;
@@ -11,10 +10,11 @@ use AlejandroAPorras\SpaceTraders\Sdk\Resource\Fleet;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\GlobalResource;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Systems;
 use Saloon\Http\Auth\TokenAuthenticator;
-use Saloon\PaginationPlugin\Contracts\HasPagination;
-use Saloon\PaginationPlugin\PagedPaginator;
+use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
+use Saloon\PaginationPlugin\PagedPaginator;
 
 /**
  * SpaceTraders API
@@ -43,81 +43,74 @@ class SpaceTraders extends Connector implements HasPagination
         return new TokenAuthenticator($this->token);
     }
 
-	public function resolveBaseUrl(): string
-	{
-		return 'https://api.spacetraders.io/v2';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return 'https://api.spacetraders.io/v2';
+    }
 
+    public function agents(): Agents
+    {
+        return new Agents($this);
+    }
 
-	public function agents(): Agents
-	{
-		return new Agents($this);
-	}
+    public function contracts(): Contracts
+    {
+        return new Contracts($this);
+    }
 
+    public function data(): Data
+    {
+        return new Data($this);
+    }
 
-	public function contracts(): Contracts
-	{
-		return new Contracts($this);
-	}
+    public function factions(): Factions
+    {
+        return new Factions($this);
+    }
 
+    public function fleet(): Fleet
+    {
+        return new Fleet($this);
+    }
 
-	public function data(): Data
-	{
-		return new Data($this);
-	}
+    public function globalResource(): GlobalResource
+    {
+        return new GlobalResource($this);
+    }
 
+    public function systems(): Systems
+    {
+        return new Systems($this);
+    }
 
-	public function factions(): Factions
-	{
-		return new Factions($this);
-	}
+    public function paginate(Request $request): PagedPaginator
+    {
+        return new class(connector: $this, request: $request) extends PagedPaginator
+        {
+            protected ?int $perPageLimit = 20;
 
+            protected function isLastPage(Response $response): bool
+            {
+                $meta = $response->json('meta');
+                $total = $meta['total'] ?? 0;
+                $limit = $meta['limit'] ?? $this->perPageLimit;
+                $page = $meta['page'] ?? 1;
 
-	public function fleet(): Fleet
-	{
-		return new Fleet($this);
-	}
+                return ($page * $limit) >= $total;
+            }
 
+            protected function getPageItems(Response $response, Request $request): array
+            {
+                return $response->json('data');
+            }
 
-	public function globalResource(): GlobalResource
-	{
-		return new GlobalResource($this);
-	}
+            protected function applyPagination(Request $request): Request
+            {
+                $request->query()->add('page', $this->currentPage);
+                $request->query()->add('limit', $this->perPageLimit);
 
-
-	public function systems(): Systems
-	{
-		return new Systems($this);
-	}
-
-	public function paginate(Request $request): PagedPaginator
-	{
-		return new class(connector: $this, request: $request) extends PagedPaginator
-		{
-			protected ?int $perPageLimit = 20;
-
-			protected function isLastPage(Response $response): bool
-			{
-				$meta = $response->json('meta');
-				$total = $meta['total'] ?? 0;
-				$limit = $meta['limit'] ?? $this->perPageLimit;
-				$page = $meta['page'] ?? 1;
-
-				return ($page * $limit) >= $total;
-			}
-
-			protected function getPageItems(Response $response, Request $request): array
-			{
-				return $response->json('data');
-			}
-
-			protected function applyPagination(Request $request): Request
-			{
-				$request->query()->add('page', $this->currentPage);
-				$request->query()->add('limit', $this->perPageLimit);
-
-				return $request;
-			}
-		};
-	}
+                return $request;
+            }
+        };
+    }
 }

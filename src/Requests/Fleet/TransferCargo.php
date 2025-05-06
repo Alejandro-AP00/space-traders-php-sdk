@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -23,34 +22,31 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class TransferCargo extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/ships/{$this->shipSymbol}/transfer";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships/{$this->shipSymbol}/transfer";
-	}
-
-
-	/**
-	 * @param string $shipSymbol The transferring ship's symbol.
-	 */
-	public function __construct(
-		protected string $shipSymbol,
+    /**
+     * @param  string  $shipSymbol  The transferring ship's symbol.
+     */
+    public function __construct(
+        protected string $shipSymbol,
         protected TradeGoodSymbol $tradeGoodSymbol,
         protected int $units,
         protected string $transferToShipSymbol
-	) {
-	}
+    ) {}
 
     protected function defaultBody(): array
     {
         return [
             'tradeSymbol' => $this->tradeGoodSymbol->value,
             'units' => $this->units,
-            'shipSymbol' => $this->transferToShipSymbol
+            'shipSymbol' => $this->transferToShipSymbol,
         ];
     }
 }

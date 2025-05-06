@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,17 @@ use Saloon\Http\Request;
  */
 class GetAgent extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/agents/{$this->agentSymbol}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/agents/{$this->agentSymbol}";
-	}
-
-
-	/**
-	 * @param string $agentSymbol The agent symbol
-	 */
-	public function __construct(
-		protected string $agentSymbol,
-	) {
-	}
+    /**
+     * @param  string  $agentSymbol  The agent symbol
+     */
+    public function __construct(
+        protected string $agentSymbol,
+    ) {}
 }

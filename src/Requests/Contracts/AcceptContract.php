@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -18,22 +17,19 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class AcceptContract extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/contracts/{$this->contractId}/accept";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/contracts/{$this->contractId}/accept";
-	}
-
-
-	/**
-	 * @param string $contractId The contract ID to accept.
-	 */
-	public function __construct(
-		protected string $contractId,
-	) {
-	}
+    /**
+     * @param  string  $contractId  The contract ID to accept.
+     */
+    public function __construct(
+        protected string $contractId,
+    ) {}
 }
