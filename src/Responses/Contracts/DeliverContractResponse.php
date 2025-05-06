@@ -3,7 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Responses\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Data\Contracts\ContractData;
-use AlejandroAPorras\SpaceTraders\Data\Ships\ShipCargoData;
+use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use Saloon\Http\Response;
 
 class DeliverContractResponse extends Response

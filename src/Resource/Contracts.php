@@ -48,7 +48,6 @@ class Contracts extends Resource
 
     /**
      * @param  string  $contractId  The ID of the contract.
-     * @return array{cargo: ShipCargoData, contract: ContractData}
      */
     public function deliverContract(string $contractId, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): DeliverContractResponse
     {
@@ -57,7 +56,6 @@ class Contracts extends Resource
 
     /**
      * @param  string  $contractId  The ID of the contract to fulfill.
-     * @return array{agent: AgentData, contract: ContractData}
      */
     public function fulfillContract(string $contractId): FulfillContractResponse
     {
