@@ -2,8 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
-use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
-use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\WaypointType;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetConstruction;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetJumpGate;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetMarket;

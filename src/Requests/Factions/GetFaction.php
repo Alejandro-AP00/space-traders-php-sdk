@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions;
 
-use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 

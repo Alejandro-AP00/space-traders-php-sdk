@@ -2,8 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems;
 
-use AlejandroAPorras\SpaceTraders\Enums\WaypointTraitSymbol;
-use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\WaypointTraitSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\WaypointType;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;

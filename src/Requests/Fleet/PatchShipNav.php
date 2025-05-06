@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use AlejandroAPorras\SpaceTraders\Enums\ShipNavFlightMode;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\ShipNavFlightMode;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

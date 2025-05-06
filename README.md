@@ -48,7 +48,7 @@ On paginated results, there are also some more convenience methods:
 You can generate a new token using the register method
 
 ```php
-use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
 
 $space_traders->register(FactionSymbol::COSMIC, 'T3ST_US3R', 'your@email.com')
 ```

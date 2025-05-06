@@ -2,11 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
-use AlejandroAPorras\SpaceTraders\Enums\DepositSize;
-use AlejandroAPorras\SpaceTraders\Enums\ProduceType;
-use AlejandroAPorras\SpaceTraders\Enums\ShipNavFlightMode;
-use AlejandroAPorras\SpaceTraders\Enums\ShipType;
-use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\DepositSize;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\ProduceType;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\ShipNavFlightMode;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\ShipType;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\CreateChart;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\CreateShipShipScan;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\CreateShipSystemScan;

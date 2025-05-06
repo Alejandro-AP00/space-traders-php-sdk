@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use AlejandroAPorras\SpaceTraders\Enums\ProduceType;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\ProduceType;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

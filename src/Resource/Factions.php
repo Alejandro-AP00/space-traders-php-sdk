@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
-use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions\GetFaction;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions\GetFactions;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource;

@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
-use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\AcceptContract;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\DeliverContract;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\FulfillContract;
