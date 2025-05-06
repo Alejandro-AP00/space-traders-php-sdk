@@ -2,14 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Data;
 
-use Spatie\LaravelData\Data;
+use AlejandroAPorras\SpaceTraders\Sdk\Contracts\DataResource;
 
-class MetaData extends Data
+class MetaData extends DataResource
 {
-    public function __construct(
-        public int $total,
-        public int $page,
-        public int $limit,
-    ) {
-    }
+    public int $total;
+    public int $page;
+    public int $limit;
 }

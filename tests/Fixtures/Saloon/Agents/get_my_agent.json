@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "150",
+        "Content-Type": "application\/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:32:23 GMT",
+        "Etag": "W\/\"96-TK67BM7S7Jj07CYN09Gx0D\/qvIs\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "1",
+        "X-Ratelimit-Reset": "2025-05-06T01:32:25.682Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":{\"accountId\":\"acc-12345\",\"symbol\":\"BLEDE\",\"headquarters\":\"X1-Z44-A1\",\"credits\":175000,\"startingFaction\":\"ECHO\",\"shipCount\":2}}",
+    "context": []
+}

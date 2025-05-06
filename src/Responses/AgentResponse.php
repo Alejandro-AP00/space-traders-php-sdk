@@ -9,6 +9,6 @@ class AgentResponse extends Response
 {
     public function agent(): AgentData
     {
-        return AgentData::from($this->json('data'));
+        return new AgentData($this->json('data'));
     }
 }

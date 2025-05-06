@@ -88,6 +88,7 @@ class SpaceTraders extends Connector implements HasPagination
         return new class(connector: $this, request: $request) extends PagedPaginator
         {
             protected ?int $perPageLimit = 20;
+            protected int $currentPage = 1;
 
             protected function isLastPage(Response $response): bool
             {

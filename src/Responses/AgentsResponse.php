@@ -14,11 +14,11 @@ class AgentsResponse extends Response
      */
     public function agents(): Collection
     {
-        return collect($this->json('data'))->map(fn (array $agent) => AgentData::from($agent));
+        return collect($this->json('data'))->map(fn (array $agent) => new AgentData($agent));
     }
 
     public function meta(): MetaData
     {
-        return MetaData::from($this->json('meta'));
+        return new MetaData($this->json('meta'));
     }
 }
