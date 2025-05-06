@@ -2,13 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
 use AlejandroAPorras\SpaceTraders\Requests\Agents\GetAgent;
 use AlejandroAPorras\SpaceTraders\Requests\Agents\GetAgents;
 use AlejandroAPorras\SpaceTraders\Requests\Agents\GetMyAgent;
 use AlejandroAPorras\SpaceTraders\Resource;
 use AlejandroAPorras\SpaceTraders\Responses\Agents\AgentResponse;
-use AlejandroAPorras\SpaceTraders\Responses\Agents\AgentsResponse;
 use Saloon\PaginationPlugin\PagedPaginator;
 
 class Agents extends Resource

@@ -7,7 +7,9 @@ use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 class ShipCargoData extends DataResource
 {
     public int $capacity;
+
     public int $units;
+
     /**
      * @var ShipCargoItemData[]
      */

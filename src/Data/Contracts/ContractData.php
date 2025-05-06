@@ -23,22 +23,16 @@ class ContractData extends DataResource
 
     public string $deadlineToAccept;
 
-    /**
-     */
     public function accept()
     {
         return $this->spaceTraders->contracts()->acceptContract($this->id);
     }
 
-    /**
-     */
     public function deliver(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units)
     {
         return $this->spaceTraders->contracts()->deliverContract(contractId: $this->id, shipSymbol: $shipSymbol, tradeSymbol: $tradeSymbol, units: $units);
     }
 
-    /**
-     */
     public function fulfill()
     {
         return $this->spaceTraders->contracts()->fulfillContract($this->id);

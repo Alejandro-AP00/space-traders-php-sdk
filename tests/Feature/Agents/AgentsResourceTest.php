@@ -1,10 +1,10 @@
 <?php
 
-use AlejandroAPorras\SpaceTraders\SpaceTraders;
 use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
+use AlejandroAPorras\SpaceTraders\SpaceTraders;
 use Illuminate\Support\Collection;
-use Saloon\Http\Faking\MockResponse;
 use Saloon\Http\Faking\MockClient;
+use Saloon\Http\Faking\MockResponse;
 
 describe('Agents Resource', function () {
     beforeEach(function () {

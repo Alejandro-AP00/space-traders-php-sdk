@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Responses\Agents;
 
 use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
-use AlejandroAPorras\SpaceTraders\Data\MetaData;
 use AlejandroAPorras\SpaceTraders\Traits\HasMetaData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;
