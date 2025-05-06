@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Data;
+namespace AlejandroAPorras\SpaceTraders\Sdk\Data\Agents;
 
 use AlejandroAPorras\SpaceTraders\Sdk\Contracts\DataResource;
 

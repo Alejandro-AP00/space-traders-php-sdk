@@ -1,7 +1,7 @@
 <?php
 
 use AlejandroAPorras\SpaceTraders\Sdk\SpaceTraders;
-use AlejandroAPorras\SpaceTraders\Sdk\Data\AgentData;
+use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Http\Faking\MockClient;

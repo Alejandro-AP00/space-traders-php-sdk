@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Responses;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Data\AgentData;
+use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
 use AlejandroAPorras\SpaceTraders\Sdk\Data\MetaData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;

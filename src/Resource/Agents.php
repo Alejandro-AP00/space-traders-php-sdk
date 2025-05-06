@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Data\AgentData;
+use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetAgent;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetAgents;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetMyAgent;
