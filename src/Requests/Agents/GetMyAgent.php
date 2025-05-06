@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
+namespace AlejandroAPorras\SpaceTraders\Requests\Agents;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentResponse;
+use AlejandroAPorras\SpaceTraders\Responses\AgentResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 

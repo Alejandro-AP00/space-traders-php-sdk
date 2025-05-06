@@ -1,9 +1,9 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Responses;
+namespace AlejandroAPorras\SpaceTraders\Responses;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
-use AlejandroAPorras\SpaceTraders\Sdk\Data\MetaData;
+use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
+use AlejandroAPorras\SpaceTraders\Data\MetaData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 

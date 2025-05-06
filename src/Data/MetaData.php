@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Data;
+namespace AlejandroAPorras\SpaceTraders\Data;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 
 class MetaData extends DataResource
 {

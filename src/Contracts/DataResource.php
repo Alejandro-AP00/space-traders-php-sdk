@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Contracts;
+namespace AlejandroAPorras\SpaceTraders\Contracts;
 
 use ReflectionProperty;
 

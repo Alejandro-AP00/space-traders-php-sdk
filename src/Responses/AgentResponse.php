@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Responses;
+namespace AlejandroAPorras\SpaceTraders\Responses;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
+use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
 use Saloon\Http\Response;
 
 class AgentResponse extends Response

@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Data\Agents;
+namespace AlejandroAPorras\SpaceTraders\Data\Agents;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 
 class AgentData extends DataResource
 {

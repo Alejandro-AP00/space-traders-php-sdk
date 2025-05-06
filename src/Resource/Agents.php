@@ -1,14 +1,14 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
+namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Data\Agents\AgentData;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetAgent;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetAgents;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents\GetMyAgent;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource;
-use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentResponse;
-use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentsResponse;
+use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
+use AlejandroAPorras\SpaceTraders\Requests\Agents\GetAgent;
+use AlejandroAPorras\SpaceTraders\Requests\Agents\GetAgents;
+use AlejandroAPorras\SpaceTraders\Requests\Agents\GetMyAgent;
+use AlejandroAPorras\SpaceTraders\Resource;
+use AlejandroAPorras\SpaceTraders\Responses\AgentResponse;
+use AlejandroAPorras\SpaceTraders\Responses\AgentsResponse;
 use Saloon\PaginationPlugin\PagedPaginator;
 
 class Agents extends Resource

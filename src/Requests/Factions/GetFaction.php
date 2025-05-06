@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions;
+namespace AlejandroAPorras\SpaceTraders\Requests\Factions;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 

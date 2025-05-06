@@ -1,14 +1,14 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk;
+namespace AlejandroAPorras\SpaceTraders;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Agents;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Contracts;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Data;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Factions;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Fleet;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\GlobalResource;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource\Systems;
+use AlejandroAPorras\SpaceTraders\Resource\Agents;
+use AlejandroAPorras\SpaceTraders\Resource\Contracts;
+use AlejandroAPorras\SpaceTraders\Resource\Data;
+use AlejandroAPorras\SpaceTraders\Resource\Factions;
+use AlejandroAPorras\SpaceTraders\Resource\Fleet;
+use AlejandroAPorras\SpaceTraders\Resource\GlobalResource;
+use AlejandroAPorras\SpaceTraders\Resource\Systems;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;

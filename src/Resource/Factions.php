@@ -1,11 +1,11 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
+namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions\GetFaction;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions\GetFactions;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Requests\Factions\GetFaction;
+use AlejandroAPorras\SpaceTraders\Requests\Factions\GetFactions;
+use AlejandroAPorras\SpaceTraders\Resource;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
 

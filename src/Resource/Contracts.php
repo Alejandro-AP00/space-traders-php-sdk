@@ -1,14 +1,14 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
+namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\AcceptContract;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\DeliverContract;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\FulfillContract;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\GetContract;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\GetContracts;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Requests\Contracts\AcceptContract;
+use AlejandroAPorras\SpaceTraders\Requests\Contracts\DeliverContract;
+use AlejandroAPorras\SpaceTraders\Requests\Contracts\FulfillContract;
+use AlejandroAPorras\SpaceTraders\Requests\Contracts\GetContract;
+use AlejandroAPorras\SpaceTraders\Requests\Contracts\GetContracts;
+use AlejandroAPorras\SpaceTraders\Resource;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
 

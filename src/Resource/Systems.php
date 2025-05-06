@@ -1,19 +1,19 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
+namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\WaypointType;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetConstruction;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetJumpGate;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetMarket;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetShipyard;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetSystem;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetSystems;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetSystemWaypoints;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetWaypoint;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\SupplyConstruction;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetConstruction;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetJumpGate;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetMarket;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetShipyard;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetSystem;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetSystems;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetSystemWaypoints;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\GetWaypoint;
+use AlejandroAPorras\SpaceTraders\Requests\Systems\SupplyConstruction;
+use AlejandroAPorras\SpaceTraders\Resource;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\PaginationPlugin\Paginator;

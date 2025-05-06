@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
+namespace AlejandroAPorras\SpaceTraders\Requests\Agents;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentsResponse;
+use AlejandroAPorras\SpaceTraders\Responses\AgentsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;

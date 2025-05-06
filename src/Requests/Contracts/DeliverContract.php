@@ -1,8 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts;
+namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

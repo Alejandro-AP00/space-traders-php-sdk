@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Enums;
+namespace AlejandroAPorras\SpaceTraders\Enums;
 
 enum ProduceType: string
 {

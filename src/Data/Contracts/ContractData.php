@@ -2,12 +2,12 @@
 
 namespace AlejandroAPorras\SpaceTraders\Resources;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Contracts\DataResource;
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\ContractType;
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\FactionSymbol;
-use AlejandroAPorras\SpaceTraders\Sdk\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Enums\ContractType;
+use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 
-class Contract extends DataResource
+class ContractData extends DataResource
 {
     public string $id;
 
@@ -23,27 +23,27 @@ class Contract extends DataResource
 
     public string $deadlineToAccept;
 
-    /**
-     * @return array{agent: Agent, contract: Contract}
-     */
-    public function accept(): array
-    {
-        return $this->spaceTraders->acceptContract($this->id);
-    }
+    // /**
+    //  * @return array{agent: Agent, contract: Contract}
+    //  */
+    // public function accept(): array
+    // {
+    //     return $this->spaceTraders->acceptContract($this->id);
+    // }
 
-    /**
-     * @return array{cargo: ShipCargo, contract: Contract}
-     */
-    public function deliver(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
-    {
-        return $this->spaceTraders->deliverContract(contractId: $this->id, shipSymbol: $shipSymbol, tradeSymbol: $tradeSymbol, units: $units);
-    }
+    // /**
+    //  * @return array{cargo: ShipCargo, contract: Contract}
+    //  */
+    // public function deliver(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
+    // {
+    //     return $this->spaceTraders->deliverContract(contractId: $this->id, shipSymbol: $shipSymbol, tradeSymbol: $tradeSymbol, units: $units);
+    // }
 
-    /**
-     * @return array{agent: Agent, contract: Contract}
-     */
-    public function fulfill(): array
-    {
-        return $this->spaceTraders->fulfillContract($this->id);
-    }
+    // /**
+    //  * @return array{agent: Agent, contract: Contract}
+    //  */
+    // public function fulfill(): array
+    // {
+    //     return $this->spaceTraders->fulfillContract($this->id);
+    // }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\GlobalResource;
+namespace AlejandroAPorras\SpaceTraders\Requests\GlobalResource;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;

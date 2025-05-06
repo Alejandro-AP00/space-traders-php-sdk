@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk;
+namespace AlejandroAPorras\SpaceTraders;
 
 class Resource
 {

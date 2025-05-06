@@ -1,10 +1,10 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
+namespace AlejandroAPorras\SpaceTraders\Resource;
 
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\GlobalResource\GetStatus;
-use AlejandroAPorras\SpaceTraders\Sdk\Requests\GlobalResource\Register;
-use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use AlejandroAPorras\SpaceTraders\Requests\GlobalResource\GetStatus;
+use AlejandroAPorras\SpaceTraders\Requests\GlobalResource\Register;
+use AlejandroAPorras\SpaceTraders\Resource;
 use Saloon\Http\Response;
 
 class GlobalResource extends Resource

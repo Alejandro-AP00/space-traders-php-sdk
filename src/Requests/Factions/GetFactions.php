@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions;
+namespace AlejandroAPorras\SpaceTraders\Requests\Factions;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
