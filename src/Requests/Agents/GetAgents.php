@@ -5,13 +5,14 @@ namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
 use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
  * get-agents
  *
  * Fetch agents details.
  */
-class GetAgents extends Request
+class GetAgents extends Request implements Paginatable
 {
 	protected Method $method = Method::GET;
 
@@ -26,15 +27,6 @@ class GetAgents extends Request
 	 * @param null|int $page What entry offset to request
 	 * @param null|int $limit How many entries to return per page
 	 */
-	public function __construct(
-		protected ?int $page = null,
-		protected ?int $limit = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['page' => $this->page, 'limit' => $this->limit]);
+	public function __construct() {
 	}
 }

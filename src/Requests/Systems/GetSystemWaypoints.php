@@ -2,6 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems;
 
+use AlejandroAPorras\SpaceTraders\Enums\WaypointTraitSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
 use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -31,13 +33,11 @@ class GetSystemWaypoints extends Request implements Paginatable
 	 * @param null|int $page What entry offset to request
 	 * @param null|int $limit How many entries to return per page
 	 * @param null|string $type Filter waypoints by type.
-	 * @param null|mixed $traits Filter waypoints by one or more traits.
+	 * @param null|WaypointTraitSymbol|WaypointTraitSymbol[] $traits Filter waypoints by one or more traits.
 	 */
 	public function __construct(
 		protected string $systemSymbol,
-		protected ?int $page = null,
-		protected ?int $limit = null,
-		protected ?string $type = null,
+		protected ?WaypointType $type = null,
 		protected mixed $traits = null,
 	) {
 	}
@@ -45,6 +45,6 @@ class GetSystemWaypoints extends Request implements Paginatable
 
 	public function defaultQuery(): array
 	{
-		return array_filter(['page' => $this->page, 'limit' => $this->limit, 'type' => $this->type, 'traits' => $this->traits]);
+		return array_filter(['type' => $this->type, 'traits' => $this->traits]);
 	}
 }

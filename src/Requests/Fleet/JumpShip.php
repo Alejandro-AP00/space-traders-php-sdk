@@ -36,6 +36,14 @@ class JumpShip extends Request implements HasBody
 	 */
 	public function __construct(
 		protected string $shipSymbol,
+        protected string $waypointSymbol
 	) {
 	}
+
+    protected function defaultBody(): array
+    {
+        return [
+            'waypointSymbol' => $this->waypointSymbol,
+        ];
+    }
 }

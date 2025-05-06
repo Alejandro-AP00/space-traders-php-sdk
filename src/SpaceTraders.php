@@ -10,8 +10,8 @@ use AlejandroAPorras\SpaceTraders\Sdk\Resource\Factions;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Fleet;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\GlobalResource;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource\Systems;
+use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
-use Saloon\PaginationPlugin\Contracts\Paginatable;
 use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
@@ -36,6 +36,13 @@ use Saloon\Http\Response;
  */
 class SpaceTraders extends Connector implements HasPagination
 {
+    public function __construct(public readonly string $token) {}
+
+    protected function defaultAuth(): TokenAuthenticator
+    {
+        return new TokenAuthenticator($this->token);
+    }
+
 	public function resolveBaseUrl(): string
 	{
 		return 'https://api.spacetraders.io/v2';
@@ -85,7 +92,7 @@ class SpaceTraders extends Connector implements HasPagination
 
 	public function paginate(Request $request): PagedPaginator
 	{
-		return new class($this, $request) extends PagedPaginator
+		return new class(connector: $this, request: $request) extends PagedPaginator
 		{
 			protected ?int $perPageLimit = 20;
 

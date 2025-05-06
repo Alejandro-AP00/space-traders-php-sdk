@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems;
 
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -37,6 +38,18 @@ class SupplyConstruction extends Request implements HasBody
 	public function __construct(
 		protected string $systemSymbol,
 		protected string $waypointSymbol,
+        protected string $shipSymbol,
+        protected TradeGoodSymbol $tradeSymbol,
+        protected int $units,
 	) {
 	}
+
+    protected function defaultBody(): array
+    {
+        return [
+            'shipSymbol' => $this->shipSymbol,
+            'tradeSymbol' => $this->tradeSymbol->value,
+            'units' => $this->units,
+        ];
+    }
 }

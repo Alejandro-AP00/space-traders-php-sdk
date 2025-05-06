@@ -2,6 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
+use AlejandroAPorras\SpaceTraders\Enums\DepositSize;
+use AlejandroAPorras\SpaceTraders\Enums\ProduceType;
+use AlejandroAPorras\SpaceTraders\Enums\ShipNavFlightMode;
+use AlejandroAPorras\SpaceTraders\Enums\ShipType;
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use Saloon\Http\Response;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\CreateChart;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\CreateShipShipScan;
@@ -41,6 +46,7 @@ use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\SiphonResources;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\TransferCargo;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet\WarpShip;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use Saloon\PaginationPlugin\PagedPaginator;
 
 class Fleet extends Resource
 {
@@ -48,15 +54,15 @@ class Fleet extends Resource
 	 * @param int $page What entry offset to request
 	 * @param int $limit How many entries to return per page
 	 */
-	public function getMyShips(?int $page, ?int $limit): Response
+	public function getMyShips(): PagedPaginator
 	{
-		return $this->connector->send(new GetMyShips($page, $limit));
+		return $this->connector->paginate(new GetMyShips());
 	}
 
 
-	public function purchaseShip(): Response
+	public function purchaseShip(ShipType $shipType, string $waypointSymbol): Response
 	{
-		return $this->connector->send(new PurchaseShip());
+		return $this->connector->send(new PurchaseShip($shipType, $waypointSymbol));
 	}
 
 
@@ -90,9 +96,9 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The symbol of the ship.
 	 */
-	public function shipRefine(string $shipSymbol): Response
+	public function shipRefine(string $shipSymbol, ProduceType $produce): Response
 	{
-		return $this->connector->send(new ShipRefine($shipSymbol));
+		return $this->connector->send(new ShipRefine($shipSymbol, $produce));
 	}
 
 
@@ -153,36 +159,36 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function extractResourcesWithSurvey(string $shipSymbol): Response
+	public function extractResourcesWithSurvey(string $shipSymbol, string $signature, string $waypointSymbol, array $deposits, string $expiration, DepositSize $size): Response
 	{
-		return $this->connector->send(new ExtractResourcesWithSurvey($shipSymbol));
+		return $this->connector->send(new ExtractResourcesWithSurvey($shipSymbol, $signature, $waypointSymbol, $deposits, $expiration, $size));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function jettison(string $shipSymbol): Response
+	public function jettison(string $shipSymbol, TradeGoodSymbol $tradeGood, int $units): Response
 	{
-		return $this->connector->send(new Jettison($shipSymbol));
+		return $this->connector->send(new Jettison($shipSymbol, $tradeGood, $units));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function jumpShip(string $shipSymbol): Response
+	public function jumpShip(string $shipSymbol, string $waypointSymbol): Response
 	{
-		return $this->connector->send(new JumpShip($shipSymbol));
+		return $this->connector->send(new JumpShip($shipSymbol, $waypointSymbol));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function navigateShip(string $shipSymbol): Response
+	public function navigateShip(string $shipSymbol, string $waypointSymbol): Response
 	{
-		return $this->connector->send(new NavigateShip($shipSymbol));
+		return $this->connector->send(new NavigateShip($shipSymbol, $waypointSymbol));
 	}
 
 
@@ -198,27 +204,27 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function patchShipNav(string $shipSymbol): Response
+	public function patchShipNav(string $shipSymbol, ShipNavFlightMode $flightMode): Response
 	{
-		return $this->connector->send(new PatchShipNav($shipSymbol));
+		return $this->connector->send(new PatchShipNav($shipSymbol, $flightMode));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function warpShip(string $shipSymbol): Response
+	public function warpShip(string $shipSymbol, string $waypointSymbol): Response
 	{
-		return $this->connector->send(new WarpShip($shipSymbol));
+		return $this->connector->send(new WarpShip($shipSymbol, $waypointSymbol));
 	}
 
 
 	/**
 	 * @param string $shipSymbol Symbol of a ship.
 	 */
-	public function sellCargo(string $shipSymbol): Response
+	public function sellCargo(string $shipSymbol, TradeGoodSymbol $tradeGood, int $units): Response
 	{
-		return $this->connector->send(new SellCargo($shipSymbol));
+		return $this->connector->send(new SellCargo($shipSymbol, $tradeGood, $units));
 	}
 
 
@@ -252,27 +258,27 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The ship symbol.
 	 */
-	public function refuelShip(string $shipSymbol): Response
+	public function refuelShip(string $shipSymbol, int $units = 1, bool $fromCargo = false): Response
 	{
-		return $this->connector->send(new RefuelShip($shipSymbol));
+		return $this->connector->send(new RefuelShip($shipSymbol, $units, $fromCargo));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship's symbol.
 	 */
-	public function purchaseCargo(string $shipSymbol): Response
+	public function purchaseCargo(string $shipSymbol, TradeGoodSymbol $tradeGood, int $units): Response
 	{
-		return $this->connector->send(new PurchaseCargo($shipSymbol));
+		return $this->connector->send(new PurchaseCargo($shipSymbol, $tradeGood, $units));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The transferring ship's symbol.
 	 */
-	public function transferCargo(string $shipSymbol): Response
+	public function transferCargo(string $shipSymbol, TradeGoodSymbol $tradeGoodSymbol, int $units, string $transferToShipSymbol): Response
 	{
-		return $this->connector->send(new TransferCargo($shipSymbol));
+		return $this->connector->send(new TransferCargo($shipSymbol, $tradeGoodSymbol, $units, $transferToShipSymbol));
 	}
 
 
@@ -297,18 +303,18 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The ship's symbol.
 	 */
-	public function installMount(string $shipSymbol): Response
+	public function installMount(string $shipSymbol, string $symbol): Response
 	{
-		return $this->connector->send(new InstallMount($shipSymbol));
+		return $this->connector->send(new InstallMount($shipSymbol, $symbol));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The ship's symbol.
 	 */
-	public function removeMount(string $shipSymbol): Response
+	public function removeMount(string $shipSymbol, string $symbol): Response
 	{
-		return $this->connector->send(new RemoveMount($shipSymbol));
+		return $this->connector->send(new RemoveMount($shipSymbol, $symbol));
 	}
 
 
@@ -360,17 +366,17 @@ class Fleet extends Resource
 	/**
 	 * @param string $shipSymbol The symbol of the ship
 	 */
-	public function installShipModule(string $shipSymbol): Response
+	public function installShipModule(string $shipSymbol, string $symbol): Response
 	{
-		return $this->connector->send(new InstallShipModule($shipSymbol));
+		return $this->connector->send(new InstallShipModule($shipSymbol, $symbol));
 	}
 
 
 	/**
 	 * @param string $shipSymbol The symbol of the ship
 	 */
-	public function removeShipModule(string $shipSymbol): Response
+	public function removeShipModule(string $shipSymbol, string $symbol): Response
 	{
-		return $this->connector->send(new RemoveShipModule($shipSymbol));
+		return $this->connector->send(new RemoveShipModule($shipSymbol, $symbol));
 	}
 }

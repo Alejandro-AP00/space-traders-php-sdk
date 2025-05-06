@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Factions;
 
+use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
 use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -26,7 +27,7 @@ class GetFaction extends Request
 	 * @param string $factionSymbol The faction symbol
 	 */
 	public function __construct(
-		protected string $factionSymbol,
+		protected FactionSymbol $factionSymbol,
 	) {
 	}
 }

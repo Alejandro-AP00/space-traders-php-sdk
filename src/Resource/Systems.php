@@ -2,6 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
 use Saloon\Http\Response;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetConstruction;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetJumpGate;
@@ -13,18 +15,19 @@ use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetSystems;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\GetWaypoint;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems\SupplyConstruction;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
+use Saloon\PaginationPlugin\PagedPaginator;
+use Saloon\PaginationPlugin\Paginator;
 
 class Systems extends Resource
 {
 	/**
-	 * @param int $page What entry offset to request
-	 * @param int $limit How many entries to return per page
+	 * Get all systems with pagination
 	 */
-	public function getSystems(?int $page, ?int $limit): Response
+	public function getSystems(): PagedPaginator
 	{
-		return $this->connector->send(new GetSystems($page, $limit));
+		return $this->connector->paginate(new GetSystems());
 	}
-
 
 	/**
 	 * @param string $systemSymbol The system symbol
@@ -34,25 +37,21 @@ class Systems extends Resource
 		return $this->connector->send(new GetSystem($systemSymbol));
 	}
 
-
 	/**
+	 * Get all waypoints in a system with pagination
+	 *
 	 * @param string $systemSymbol The system symbol
-	 * @param int $page What entry offset to request
-	 * @param int $limit How many entries to return per page
-	 * @param string $type Filter waypoints by type.
-	 * @param mixed $traits Filter waypoints by one or more traits.
+	 * @param string|null $type Filter waypoints by type.
+	 * @param mixed|WaypointTraitSymbol|WaypointTraitSymbol[] $traits Filter waypoints by one or more traits.
 	 */
 	public function getSystemWaypoints(
 		string $systemSymbol,
-		?int $page,
-		?int $limit,
-		?string $type,
-		mixed $traits,
-	): Response
+		?WaypointType $type = null,
+		mixed $traits = null,
+	): Paginator
 	{
-		return $this->connector->send(new GetSystemWaypoints($systemSymbol, $page, $limit, $type, $traits));
+		return $this->connector->paginate(new GetSystemWaypoints($systemSymbol, $type, $traits));
 	}
-
 
 	/**
 	 * @param string $systemSymbol The system symbol
@@ -63,7 +62,6 @@ class Systems extends Resource
 		return $this->connector->send(new GetWaypoint($systemSymbol, $waypointSymbol));
 	}
 
-
 	/**
 	 * @param string $systemSymbol The system symbol
 	 * @param string $waypointSymbol The waypoint symbol
@@ -72,7 +70,6 @@ class Systems extends Resource
 	{
 		return $this->connector->send(new GetMarket($systemSymbol, $waypointSymbol));
 	}
-
 
 	/**
 	 * @param string $systemSymbol The system symbol
@@ -83,7 +80,6 @@ class Systems extends Resource
 		return $this->connector->send(new GetShipyard($systemSymbol, $waypointSymbol));
 	}
 
-
 	/**
 	 * @param string $systemSymbol The system symbol
 	 * @param string $waypointSymbol The waypoint symbol
@@ -92,7 +88,6 @@ class Systems extends Resource
 	{
 		return $this->connector->send(new GetJumpGate($systemSymbol, $waypointSymbol));
 	}
-
 
 	/**
 	 * @param string $systemSymbol The system symbol
@@ -103,13 +98,12 @@ class Systems extends Resource
 		return $this->connector->send(new GetConstruction($systemSymbol, $waypointSymbol));
 	}
 
-
 	/**
 	 * @param string $systemSymbol The system symbol
 	 * @param string $waypointSymbol The waypoint symbol
 	 */
-	public function supplyConstruction(string $systemSymbol, string $waypointSymbol): Response
+	public function supplyConstruction(string $systemSymbol, string $waypointSymbol, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): Response
 	{
-		return $this->connector->send(new SupplyConstruction($systemSymbol, $waypointSymbol));
+		return $this->connector->send(new SupplyConstruction($systemSymbol, $waypointSymbol, $shipSymbol, $tradeSymbol, $units));
 	}
 }

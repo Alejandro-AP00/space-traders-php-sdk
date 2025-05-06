@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
+use AlejandroAPorras\SpaceTraders\Enums\ShipType;
 use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -32,7 +33,15 @@ class PurchaseShip extends Request implements HasBody
 	}
 
 
-	public function __construct()
+	public function __construct(protected ShipType $shipType, protected string $waypointSymbol)
 	{
 	}
+
+    protected function defaultBody(): array
+    {
+        return [
+            'shipType' => $this->shipType->value,
+            'waypointSymbol' => $this->waypointSymbol,
+        ];
+    }
 }

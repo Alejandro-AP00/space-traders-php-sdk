@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
+use AlejandroAPorras\SpaceTraders\Enums\ShipNavFlightMode;
 use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -34,6 +35,14 @@ class PatchShipNav extends Request implements HasBody
 	 */
 	public function __construct(
 		protected string $shipSymbol,
+        protected ShipNavFlightMode $flightMode,
 	) {
 	}
+
+    protected function defaultBody(): array
+    {
+        return [
+            'flightMode' => $this->flightMode->value,
+        ];
+    }
 }

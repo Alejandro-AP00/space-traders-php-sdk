@@ -2,7 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use DateTime;
+use AlejandroAPorras\SpaceTraders\Enums\DepositSize;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -33,9 +33,27 @@ class ExtractResourcesWithSurvey extends Request implements HasBody
 
 	/**
 	 * @param string $shipSymbol The ship symbol.
+     * @param list<array{symbol: string}> $deposits
 	 */
 	public function __construct(
 		protected string $shipSymbol,
+        protected string $signature,
+        protected string $symbol,
+        protected array $deposits,
+        protected string $expiration,
+        protected DepositSize $size
 	) {
 	}
+
+    // TODO: Replace with Survey DTO
+    protected function defaultBody(): array
+    {
+        return [
+            'signature' => $this->signature,
+            'symbol' => $this->symbol,
+            'deposits' => $this->deposits,
+            'expiration' => $this->expiration,
+            'size' => $this->size->value
+        ];
+    }
 }

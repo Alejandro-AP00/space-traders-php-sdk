@@ -27,15 +27,6 @@ class GetContracts extends Request implements Paginatable
 	 * @param null|int $page What entry offset to request
 	 * @param null|int $limit How many entries to return per page
 	 */
-	public function __construct(
-		protected ?int $page = null,
-		protected ?int $limit = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['page' => $this->page, 'limit' => $this->limit]);
+	public function __construct() {
 	}
 }

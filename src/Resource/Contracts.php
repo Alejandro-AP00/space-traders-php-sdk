@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Resource;
 
+use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use Saloon\Http\Response;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\AcceptContract;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\DeliverContract;
@@ -9,6 +10,7 @@ use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\FulfillContract;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\GetContract;
 use AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts\GetContracts;
 use AlejandroAPorras\SpaceTraders\Sdk\Resource;
+use Saloon\PaginationPlugin\PagedPaginator;
 
 class Contracts extends Resource
 {
@@ -16,9 +18,9 @@ class Contracts extends Resource
 	 * @param int $page What entry offset to request
 	 * @param int $limit How many entries to return per page
 	 */
-	public function getContracts(?int $page, ?int $limit): Response
+	public function getContracts(?int $page, ?int $limit): PagedPaginator
 	{
-		return $this->connector->send(new GetContracts($page, $limit));
+		return $this->connector->paginate(new GetContracts($page, $limit));
 	}
 
 
@@ -43,9 +45,9 @@ class Contracts extends Resource
 	/**
 	 * @param string $contractId The ID of the contract.
 	 */
-	public function deliverContract(string $contractId): Response
+	public function deliverContract(string $contractId, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): Response
 	{
-		return $this->connector->send(new DeliverContract($contractId));
+		return $this->connector->send(new DeliverContract($contractId, $shipSymbol, $tradeSymbol, $units));
 	}
 
 

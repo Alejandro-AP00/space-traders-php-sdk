@@ -40,6 +40,16 @@ class RefuelShip extends Request implements HasBody
 	 */
 	public function __construct(
 		protected string $shipSymbol,
+        protected int $units = 1,
+        protected bool $fromCargo = false,
 	) {
 	}
+
+    protected function defaultBody(): array
+    {
+        return [
+            'units' => $this->units,
+            'fromCargo' => $this->fromCargo,
+        ];
+    }
 }
