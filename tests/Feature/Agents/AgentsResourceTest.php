@@ -20,7 +20,7 @@ describe('Agents Resource', function () {
         $this->sdk->withMockClient($mock);
 
         // Act
-        $agent = $this->sdk->agents()->getMyAgent();
+        $agent = $this->sdk->agents()->getMyAgent()->agent();
 
         // Assert
         expect($agent)->toBeInstanceOf(AgentData::class)
@@ -62,7 +62,7 @@ describe('Agents Resource', function () {
         $this->sdk->withMockClient($mock);
 
         // Act
-        $agent = $this->sdk->agents()->getAgent('BLEDE');
+        $agent = $this->sdk->agents()->getAgent('BLEDE')->agent();
 
         // Assert
         expect($agent)->toBeInstanceOf(AgentData::class)
