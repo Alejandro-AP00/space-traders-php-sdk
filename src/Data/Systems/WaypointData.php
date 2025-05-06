@@ -49,31 +49,28 @@ class Waypoint extends DataResource
         $this->modifiers = $this->transformCollection($this->modifiers ?: [], WaypointModifierData::class);
     }
 
-    // public function market(): Market
-    // {
-    //     return $this->spaceTraders->market($this->systemSymbol, $this->symbol);
-    // }
+    public function market()
+    {
+        return $this->spaceTraders->systems()->getMarket($this->systemSymbol, $this->symbol);
+    }
 
-    // public function shipyard(): Shipyard
-    // {
-    //     return $this->spaceTraders->shipyard($this->systemSymbol, $this->symbol);
-    // }
+    public function shipyard()
+    {
+        return $this->spaceTraders->systems()->getShipyard($this->systemSymbol, $this->symbol);
+    }
 
-    // public function jumpGate(): JumpGate
-    // {
-    //     return $this->spaceTraders->jumpGate($this->systemSymbol, $this->symbol);
-    // }
+    public function jumpGate()
+    {
+        return $this->spaceTraders->systems()->getJumpGate($this->systemSymbol, $this->symbol);
+    }
 
-    // public function construction(): Construction
-    // {
-    //     return $this->spaceTraders->construction($this->systemSymbol, $this->symbol);
-    // }
+    public function construction()
+    {
+        return $this->spaceTraders->systems()->getConstruction($this->systemSymbol, $this->symbol);
+    }
 
-    // /**
-    //  * @return array{construction: Construction, cargo: ShipCargo}
-    //  */
-    // public function supplyConstruction(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
-    // {
-    //     return $this->spaceTraders->supplyConstruction($this->systemSymbol, $this->symbol, $shipSymbol, $tradeSymbol, $units);
-    // }
+    public function supplyConstruction(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units)
+    {
+        return $this->spaceTraders->systems()->supplyConstruction($this->systemSymbol, $this->symbol, $shipSymbol, $tradeSymbol, $units);
+    }
 }

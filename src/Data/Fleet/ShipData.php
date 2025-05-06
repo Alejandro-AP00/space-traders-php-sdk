@@ -49,7 +49,7 @@ class ShipData extends DataResource
         $this->mounts = $this->transformCollection($this->mounts ?: [], ShipMountData::class);
     }
 
-    public function cargo(): ShipCargoData
+    public function cargo()
     {
         return $this->spaceTraders->fleet()->getMyShipCargo($this->symbol);
     }
@@ -57,7 +57,7 @@ class ShipData extends DataResource
     /**
      * @return array{nav: ShipNavData}
      */
-    public function orbit(): array
+    public function orbit()
     {
         return $this->spaceTraders->fleet()->orbitShip($this->symbol);
     }
@@ -65,7 +65,7 @@ class ShipData extends DataResource
     /**
      * @return array{cargo: ShipCargoData, cooldown: CooldownData, produced: ShipRefineGoodData[], consumed: ShipRefineGoodData[]}
      */
-    public function refine(ProduceType $produce): array
+    public function refine(ProduceType $produce)
     {
         return $this->spaceTraders->fleet()->refineShip($this->symbol, $produce);
     }
@@ -73,12 +73,12 @@ class ShipData extends DataResource
     /**
      * @return array{chart: ChartData, waypoint: WaypointData}
      */
-    public function chart(): array
+    public function chart()
     {
         return $this->spaceTraders->fleet()->chartShip($this->symbol);
     }
 
-    public function cooldown(): CooldownData
+    public function cooldown()
     {
         return $this->spaceTraders->fleet()->getShipCooldown($this->symbol);
     }
@@ -86,7 +86,7 @@ class ShipData extends DataResource
     /**
      * @return array{nav: ShipNavData}
      */
-    public function dock(): array
+    public function dock()
     {
         return $this->spaceTraders->fleet()->dockShip($this->symbol);
     }
@@ -94,7 +94,7 @@ class ShipData extends DataResource
     /**
      * @return array{cooldown: CooldownData, surveys: SurveyData[]}
      */
-    public function survey(): array
+    public function survey()
     {
         return $this->spaceTraders->fleet()->createSurvey($this->symbol);
     }
@@ -102,7 +102,7 @@ class ShipData extends DataResource
     /**
      * @return array{cooldown: CooldownData, extraction: ExtractionData, cargo: ShipCargoData, events: ShipConditionEventData[]}
      */
-    public function extractResources(): array
+    public function extractResources()
     {
         return $this->spaceTraders->fleet()->extractResources($this->symbol);
     }
@@ -110,7 +110,7 @@ class ShipData extends DataResource
     /**
      * @return array{cooldown: CooldownData, siphon: SiphonData, cargo: ShipCargoData, events: ShipConditionEventData[]}
      */
-    public function siphonResources(): array
+    public function siphonResources()
     {
         return $this->spaceTraders->fleet()->siphonResources($this->symbol);
     }
@@ -118,20 +118,20 @@ class ShipData extends DataResource
     /**
      * @return array{cooldown: CooldownData, extraction: ExtractionData, cargo: ShipCargoData, events: ShipConditionEventData[]}
      */
-    public function extractResourcesWithSurvey(SurveyData $survey): array
+    public function extractResourcesWithSurvey(SurveyData $survey)
     {
         return $this->spaceTraders->fleet()->extractResources($this->symbol, $survey);
     }
 
-    public function jettisonCargo(TradeGoodSymbol $tradeGoodSymbol, int $units): array
+    public function jettisonCargo(TradeGoodSymbol $tradeGoodSymbol, int $units)
     {
-        return $this->spaceTraders->fleet()->jettisonCargo($this->symbol, $tradeGoodSymbol, $units);
+        return $this->spaceTraders->fleet()->jettison($this->symbol, $tradeGoodSymbol, $units);
     }
 
     /**
      * @return array{nav: ShipNavData, cooldown: CooldownData, transaction: MarketTransactionData, agent: AgentData}
      */
-    public function jump(string $waypointSymbol): array
+    public function jump(string $waypointSymbol)
     {
         return $this->spaceTraders->fleet()->jumpShip($this->symbol, $waypointSymbol);
     }
@@ -139,17 +139,17 @@ class ShipData extends DataResource
     /**
      * @return array{nav: ShipNavData, fuel: ShipFuelData, events: ShipConditionEventData[]}
      */
-    public function navigate(string $waypointSymbol): array
+    public function navigate(string $waypointSymbol)
     {
         return $this->spaceTraders->fleet()->navigateShip($this->symbol, $waypointSymbol);
     }
 
-    public function patchNav(ShipNavFlightMode $flightMode): ShipNavData
+    public function patchNav(ShipNavFlightMode $flightMode)
     {
         return $this->spaceTraders->fleet()->patchShipNav($this->symbol, $flightMode);
     }
 
-    public function nav(): ShipNavData
+    public function nav()
     {
         return $this->spaceTraders->fleet()->getShipNav($this->symbol);
     }
@@ -157,7 +157,7 @@ class ShipData extends DataResource
     /**
      * @return array{nav: ShipNavData, fuel: ShipFuelData}
      */
-    public function warp(string $waypointSymbol): array
+    public function warp(string $waypointSymbol)
     {
         return $this->spaceTraders->fleet()->warpShip($this->symbol, $waypointSymbol);
     }
@@ -165,7 +165,7 @@ class ShipData extends DataResource
     /**
      * @return array{cargo: ShipCargoData, transaction: MarketTransactionData, agent: AgentData}
      */
-    public function sellCargo(TradeGoodSymbol $tradeGoodSymbol, int $units): array
+    public function sellCargo(TradeGoodSymbol $tradeGoodSymbol, int $units)
     {
         return $this->spaceTraders->fleet()->sellCargo($this->symbol, $tradeGoodSymbol, $units);
     }
@@ -173,31 +173,31 @@ class ShipData extends DataResource
     /**
      * @return array{systems: ScannedSystemData[], cooldown: CooldownData}
      */
-    public function scanSystems(): array
+    public function scanSystems()
     {
-        return $this->spaceTraders->fleet()->scanSystems($this->symbol);
+        return $this->spaceTraders->fleet()->createShipSystemScan($this->symbol);
     }
 
     /**
      * @return array{waypoints: ScannedWaypointData[], cooldown: CooldownData}
      */
-    public function scanWaypoints(): array
+    public function scanWaypoints()
     {
-        return $this->spaceTraders->fleet()->scanWaypoints($this->symbol);
+        return $this->spaceTraders->fleet()->createShipWaypointScan($this->symbol);
     }
 
     /**
      * @return array{systems: ScannedShipData[], cooldown: CooldownData}
      */
-    public function scanShips(): array
+    public function scanShips()
     {
-        return $this->spaceTraders->fleet()->scanShips($this->symbol);
+        return $this->spaceTraders->fleet()->createShipShipScan($this->symbol);
     }
 
     /**
      * @return array{fuel: ShipFuelData, transaction: MarketTransactionData, agent: AgentData}
      */
-    public function refuel(?int $units, ?bool $fromCargo = false): array
+    public function refuel(?int $units, ?bool $fromCargo = false)
     {
         return $this->spaceTraders->fleet()->refuelShip($this->symbol, $units, $fromCargo);
     }
@@ -205,7 +205,7 @@ class ShipData extends DataResource
     /**
      * @return array{cargo: ShipCargoData, transaction: MarketTransactionData, agent: AgentData}
      */
-    public function purchaseCargo(TradeGoodSymbol $tradeGoodSymbol, int $units): array
+    public function purchaseCargo(TradeGoodSymbol $tradeGoodSymbol, int $units)
     {
         return $this->spaceTraders->fleet()->purchaseCargo($this->symbol, $tradeGoodSymbol, $units);
     }
@@ -213,7 +213,7 @@ class ShipData extends DataResource
     /**
      * @return array{cargo: ShipCargoData}
      */
-    public function transferCargo(TradeGoodSymbol $tradeGoodSymbol, int $units, string $transferShipSymbol): array
+    public function transferCargo(TradeGoodSymbol $tradeGoodSymbol, int $units, string $transferShipSymbol)
     {
         return $this->spaceTraders->fleet()->transferCargo($this->symbol, $tradeGoodSymbol, $units, $transferShipSymbol);
     }
@@ -221,7 +221,7 @@ class ShipData extends DataResource
     /**
      * @return array{contract: ContractData}
      */
-    public function negotiateContract(): array
+    public function negotiateContract()
     {
         return $this->spaceTraders->fleet()->negotiateContract($this->symbol);
     }
@@ -229,39 +229,39 @@ class ShipData extends DataResource
     /**
      * @return ShipMountData[]
      */
-    public function mounts(): array
+    public function mounts()
     {
-        return $this->spaceTraders->fleet()->getShipMounts($this->symbol);
+        return $this->spaceTraders->fleet()->getMounts($this->symbol);
     }
 
     /**
      * @return array{agent: AgentData, mounts: ShipMountData[], cargo: ShipCargoData, transaction: ShipModificationTransactionData}
      */
-    public function installMount(string $mountSymbol): array
+    public function installMount(string $mountSymbol)
     {
-        return $this->spaceTraders->fleet()->installShipMount($this->symbol, $mountSymbol);
+        return $this->spaceTraders->fleet()->installMount($this->symbol, $mountSymbol);
     }
 
     /**
      * @return array{agent: AgentData, mounts: ShipMountData[], cargo: ShipCargoData, transaction: ShipModificationTransactionData}
      */
-    public function removeMount(string $mountSymbol): array
+    public function removeMount(string $mountSymbol)
     {
-        return $this->spaceTraders->fleet()->removeShipMount($this->symbol, $mountSymbol);
+        return $this->spaceTraders->fleet()->removeMount($this->symbol, $mountSymbol);
     }
 
     /**
      * @return array{transaction: ScrapTransactionData}
      */
-    public function scrapValue(): array
+    public function scrapValue()
     {
-        return $this->spaceTraders->fleet()->getShipScrapValue($this->symbol);
+        return $this->spaceTraders->fleet()->getScrapShip($this->symbol);
     }
 
     /**
      * @return array{agent: AgentData, transaction: ScrapTransactionData}
      */
-    public function scrap(): array
+    public function scrap()
     {
         return $this->spaceTraders->fleet()->scrapShip($this->symbol);
     }
@@ -269,15 +269,15 @@ class ShipData extends DataResource
     /**
      * @return array{transaction: RepairTransactionData}
      */
-    public function repairValue(): array
+    public function repairValue()
     {
-        return $this->spaceTraders->fleet()->getShipRepairValue($this->symbol);
+        return $this->spaceTraders->fleet()->getRepairShip($this->symbol);
     }
 
     /**
      * @return array{agent: AgentData, transaction: RepairTransactionData}
      */
-    public function repair(): array
+    public function repair()
     {
         return $this->spaceTraders->fleet()->repairShip($this->symbol);
     }
