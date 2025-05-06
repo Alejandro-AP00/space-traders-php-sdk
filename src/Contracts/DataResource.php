@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Contracts;
 
+use AlejandroAPorras\SpaceTraders\SpaceTraders;
 use ReflectionProperty;
 
 /**
@@ -10,16 +11,12 @@ use ReflectionProperty;
  */
 abstract class DataResource
 {
-    // Raw input attributes (usually from API responses)
-    public array $attributes = [];
-
     /**
      * Constructor.
      * Initializes the object with the provided attributes and fills the public properties.
      */
-    public function __construct(array $attributes)
+    public function __construct(public array $attributes = [], protected ?SpaceTraders $spaceTraders = null)
     {
-        $this->attributes = $attributes;
         $this->fill(); // Automatically assign values to class properties
     }
 
@@ -66,6 +63,7 @@ abstract class DataResource
 
         // Remove internal helper properties
         unset($publicProperties['attributes']);
+        unset($publicProperties['spaceTraders']);
 
         $properties = [];
 
@@ -113,7 +111,7 @@ abstract class DataResource
     protected function transformCollection(array $collection, string $class, array $extraData = []): array
     {
         return array_map(function ($data) use ($class, $extraData) {
-            return new $class($data + $extraData);
+            return new $class($data + $extraData, $this->spaceTraders);
         }, $collection);
     }
 }

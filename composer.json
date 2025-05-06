@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "AlejandroAPorras\\SpaceTraders\\Sdk\\": "src"
+            "AlejandroAPorras\\SpaceTraders\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AlejandroAPorras\\SpaceTraders\\Sdk\\Tests\\": "tests"
+            "AlejandroAPorras\\SpaceTraders\\Tests\\": "tests"
         }
     },
     "scripts": {

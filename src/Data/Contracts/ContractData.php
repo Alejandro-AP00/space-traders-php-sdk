@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Resources;
+namespace AlejandroAPorras\SpaceTraders\Data\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\ContractType;
@@ -23,27 +23,24 @@ class ContractData extends DataResource
 
     public string $deadlineToAccept;
 
-    // /**
-    //  * @return array{agent: Agent, contract: Contract}
-    //  */
-    // public function accept(): array
-    // {
-    //     return $this->spaceTraders->acceptContract($this->id);
-    // }
+    /**
+     */
+    public function accept()
+    {
+        return $this->spaceTraders->contracts()->acceptContract($this->id);
+    }
 
-    // /**
-    //  * @return array{cargo: ShipCargo, contract: Contract}
-    //  */
-    // public function deliver(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): array
-    // {
-    //     return $this->spaceTraders->deliverContract(contractId: $this->id, shipSymbol: $shipSymbol, tradeSymbol: $tradeSymbol, units: $units);
-    // }
+    /**
+     */
+    public function deliver(string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units)
+    {
+        return $this->spaceTraders->contracts()->deliverContract(contractId: $this->id, shipSymbol: $shipSymbol, tradeSymbol: $tradeSymbol, units: $units);
+    }
 
-    // /**
-    //  * @return array{agent: Agent, contract: Contract}
-    //  */
-    // public function fulfill(): array
-    // {
-    //     return $this->spaceTraders->fulfillContract($this->id);
-    // }
+    /**
+     */
+    public function fulfill()
+    {
+        return $this->spaceTraders->contracts()->fulfillContract($this->id);
+    }
 }
