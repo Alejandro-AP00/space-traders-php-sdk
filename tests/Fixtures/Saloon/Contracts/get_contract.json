@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "110",
+        "Content-Type": "application\/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:32:24 GMT",
+        "Etag": "W\/\"6e-KPHeH0WDerjqvtiIpQRJPsReYk0\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "0",
+        "X-Ratelimit-Reset": "2025-05-06T01:32:25.682Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":{\"id\":\"clsw7n00g000008ml4uowdp2s\",\"factionSymbol\":\"COSMIC\",\"type\":\"PROCUREMENT\",\"terms\":{\"deadline\":\"2024-06-01T00:00:00.000Z\",\"payment\":{\"onAccepted\":10000,\"onFulfilled\":50000},\"deliver\":[{\"tradeSymbol\":\"IRON_ORE\",\"destinationSymbol\":\"X1-TEST-A1\",\"unitsRequired\":100,\"unitsFulfilled\":0}]},\"accepted\":false,\"fulfilled\":false,\"deadlineToAccept\":\"2024-06-01T00:00:00.000Z\"}}",
+    "context": []
+}
