@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -23,27 +22,24 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class DeliverContract extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/contracts/{$this->contractId}/deliver";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/contracts/{$this->contractId}/deliver";
-	}
-
-
-	/**
-	 * @param string $contractId The ID of the contract.
-	 */
-	public function __construct(
-		protected string $contractId,
+    /**
+     * @param  string  $contractId  The ID of the contract.
+     */
+    public function __construct(
+        protected string $contractId,
         protected string $shipSymbol,
         protected TradeGoodSymbol $tradeSymbol,
         protected int $units,
-	) {
-	}
+    ) {}
 
     protected function defaultBody(): array
     {

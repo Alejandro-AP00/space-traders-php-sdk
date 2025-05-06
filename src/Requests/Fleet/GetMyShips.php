@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
@@ -14,19 +13,16 @@ use Saloon\PaginationPlugin\Contracts\Paginatable;
  */
 class GetMyShips extends Request implements Paginatable
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/my/ships';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships";
-	}
-
-
-	/**
-	 * @param null|int $page What entry offset to request
-	 * @param null|int $limit How many entries to return per page
-	 */
-	public function __construct() {
-	}
+    /**
+     * @param  null|int  $page  What entry offset to request
+     * @param  null|int  $limit  How many entries to return per page
+     */
+    public function __construct() {}
 }

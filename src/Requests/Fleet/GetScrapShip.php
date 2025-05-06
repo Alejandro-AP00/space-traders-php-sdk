@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,17 @@ use Saloon\Http\Request;
  */
 class GetScrapShip extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/ships/{$this->shipSymbol}/scrap";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships/{$this->shipSymbol}/scrap";
-	}
-
-
-	/**
-	 * @param string $shipSymbol The ship symbol.
-	 */
-	public function __construct(
-		protected string $shipSymbol,
-	) {
-	}
+    /**
+     * @param  string  $shipSymbol  The ship symbol.
+     */
+    public function __construct(
+        protected string $shipSymbol,
+    ) {}
 }

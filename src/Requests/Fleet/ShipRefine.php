@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Enums\ProduceType;
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -21,25 +20,22 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class ShipRefine extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/ships/{$this->shipSymbol}/refine";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships/{$this->shipSymbol}/refine";
-	}
-
-
-	/**
-	 * @param string $shipSymbol The symbol of the ship.
-	 */
-	public function __construct(
-		protected string $shipSymbol,
+    /**
+     * @param  string  $shipSymbol  The symbol of the ship.
+     */
+    public function __construct(
+        protected string $shipSymbol,
         protected ProduceType $produce,
-	) {
-	}
+    ) {}
 
     protected function defaultBody(): array
     {

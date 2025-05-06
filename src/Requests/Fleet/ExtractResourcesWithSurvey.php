@@ -20,30 +20,27 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class ExtractResourcesWithSurvey extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/ships/{$this->shipSymbol}/extract/survey";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships/{$this->shipSymbol}/extract/survey";
-	}
-
-
-	/**
-	 * @param string $shipSymbol The ship symbol.
-     * @param list<array{symbol: string}> $deposits
-	 */
-	public function __construct(
-		protected string $shipSymbol,
+    /**
+     * @param  string  $shipSymbol  The ship symbol.
+     * @param  list<array{symbol: string}>  $deposits
+     */
+    public function __construct(
+        protected string $shipSymbol,
         protected string $signature,
         protected string $symbol,
         protected array $deposits,
         protected string $expiration,
         protected DepositSize $size
-	) {
-	}
+    ) {}
 
     // TODO: Replace with Survey DTO
     protected function defaultBody(): array
@@ -53,7 +50,7 @@ class ExtractResourcesWithSurvey extends Request implements HasBody
             'symbol' => $this->symbol,
             'deposits' => $this->deposits,
             'expiration' => $this->expiration,
-            'size' => $this->size->value
+            'size' => $this->size->value,
         ];
     }
 }

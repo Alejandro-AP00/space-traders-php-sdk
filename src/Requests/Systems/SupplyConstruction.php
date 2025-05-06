@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Systems;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -20,29 +19,26 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class SupplyConstruction extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/systems/{$this->systemSymbol}/waypoints/{$this->waypointSymbol}/construction/supply";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/systems/{$this->systemSymbol}/waypoints/{$this->waypointSymbol}/construction/supply";
-	}
-
-
-	/**
-	 * @param string $systemSymbol The system symbol
-	 * @param string $waypointSymbol The waypoint symbol
-	 */
-	public function __construct(
-		protected string $systemSymbol,
-		protected string $waypointSymbol,
+    /**
+     * @param  string  $systemSymbol  The system symbol
+     * @param  string  $waypointSymbol  The waypoint symbol
+     */
+    public function __construct(
+        protected string $systemSymbol,
+        protected string $waypointSymbol,
         protected string $shipSymbol,
         protected TradeGoodSymbol $tradeSymbol,
         protected int $units,
-	) {
-	}
+    ) {}
 
     protected function defaultBody(): array
     {

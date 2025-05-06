@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Fleet;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -19,22 +18,19 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateShipSystemScan extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/my/ships/{$this->shipSymbol}/scan/systems";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/ships/{$this->shipSymbol}/scan/systems";
-	}
-
-
-	/**
-	 * @param string $shipSymbol The ship symbol.
-	 */
-	public function __construct(
-		protected string $shipSymbol,
-	) {
-	}
+    /**
+     * @param  string  $shipSymbol  The ship symbol.
+     */
+    public function __construct(
+        protected string $shipSymbol,
+    ) {}
 }

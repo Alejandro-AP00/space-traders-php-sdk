@@ -2,7 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,16 +12,12 @@ use Saloon\Http\Request;
  */
 class GetMyAgent extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/my/agent';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/my/agent";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function __construct() {}
 }
