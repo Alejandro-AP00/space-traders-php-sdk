@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
+use AlejandroAPorras\SpaceTraders\Responses\ContractsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
@@ -25,4 +26,9 @@ class GetContracts extends Request implements Paginatable
      * @param  null|int  $limit  How many entries to return per page
      */
     public function __construct() {}
+
+    public function resolveResponseClass(): ?string
+    {
+        return ContractsResponse::class;
+    }
 }

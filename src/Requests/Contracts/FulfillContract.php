@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
+use AlejandroAPorras\SpaceTraders\Responses\FulfillContractResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -29,4 +30,9 @@ class FulfillContract extends Request implements HasBody
     public function __construct(
         protected string $contractId,
     ) {}
+
+    public function resolveResponseClass(): ?string
+    {
+        return FulfillContractResponse::class;
+    }
 }

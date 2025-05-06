@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
+use AlejandroAPorras\SpaceTraders\Responses\ContractResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,4 +26,9 @@ class GetContract extends Request
     public function __construct(
         protected string $contractId,
     ) {}
+
+    public function resolveResponseClass(): ?string
+    {
+        return ContractResponse::class;
+    }
 }

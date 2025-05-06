@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Contracts;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Responses\DeliverContractResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -48,5 +49,10 @@ class DeliverContract extends Request implements HasBody
             'tradeSymbol' => $this->tradeSymbol->value,
             'units' => $this->units,
         ];
+    }
+
+    public function resolveResponseClass(): ?string
+    {
+        return DeliverContractResponse::class;
     }
 }
