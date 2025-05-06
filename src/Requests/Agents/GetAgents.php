@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
 
+use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
@@ -25,4 +26,9 @@ class GetAgents extends Request implements Paginatable
      * @param  null|int  $limit  How many entries to return per page
      */
     public function __construct() {}
+
+    public function resolveResponseClass(): string
+    {
+        return AgentsResponse::class;
+    }
 }

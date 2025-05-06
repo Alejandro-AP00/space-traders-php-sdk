@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Sdk\Requests\Agents;
 
+use AlejandroAPorras\SpaceTraders\Sdk\Responses\AgentResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -20,4 +21,9 @@ class GetMyAgent extends Request
     }
 
     public function __construct() {}
+
+    public function resolveResponseClass(): string
+    {
+        return AgentResponse::class;
+    }
 }
