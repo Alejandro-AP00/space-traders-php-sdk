@@ -2,8 +2,10 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Factions;
 
+use AlejandroAPorras\SpaceTraders\Responses\Factions\FactionsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**
@@ -25,4 +27,9 @@ class GetFactions extends Request implements Paginatable
      * @param  null|int  $limit  How many entries to return per page
      */
     public function __construct() {}
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return FactionsResponse::class;
+    }
 }
