@@ -6,7 +6,7 @@ use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\ShipType;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 
-class Shipyard extends DataResource
+class ShipyardData extends DataResource
 {
     public string $symbol;
 

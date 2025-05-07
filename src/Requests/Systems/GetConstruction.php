@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\ConstructionResponse;
 
 /**
  * get-construction
@@ -28,4 +29,9 @@ class GetConstruction extends Request
         protected string $systemSymbol,
         protected string $waypointSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return ConstructionResponse::class;
+    }
 }

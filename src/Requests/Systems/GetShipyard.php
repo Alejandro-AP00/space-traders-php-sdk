@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\ShipyardResponse;
 
 /**
  * get-shipyard
@@ -19,6 +20,11 @@ class GetShipyard extends Request
     public function resolveEndpoint(): string
     {
         return "/systems/{$this->systemSymbol}/waypoints/{$this->waypointSymbol}/shipyard";
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return ShipyardResponse::class;
     }
 
     /**

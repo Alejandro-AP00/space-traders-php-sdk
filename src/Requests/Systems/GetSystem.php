@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,4 +26,9 @@ class GetSystem extends Request
     public function __construct(
         protected string $systemSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return SystemResponse::class;
+    }
 }

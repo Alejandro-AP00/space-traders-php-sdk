@@ -5,6 +5,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemsResponse;
 
 /**
  * get-systems
@@ -32,5 +33,10 @@ class GetSystems extends Request implements Paginatable
     public function defaultQuery(): array
     {
         return array_filter(['page' => $this->page, 'limit' => $this->limit]);
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return SystemsResponse::class;
     }
 }

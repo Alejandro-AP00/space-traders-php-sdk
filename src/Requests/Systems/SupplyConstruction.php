@@ -7,6 +7,7 @@ use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SupplyConstructionResponse;
 
 /**
  * supply-construction
@@ -47,5 +48,10 @@ class SupplyConstruction extends Request implements HasBody
             'tradeSymbol' => $this->tradeSymbol->value,
             'units' => $this->units,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return SupplyConstructionResponse::class;
     }
 }

@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\MarketResponse;
 
 /**
  * get-market
@@ -23,6 +24,11 @@ class GetMarket extends Request
     public function resolveEndpoint(): string
     {
         return "/systems/{$this->systemSymbol}/waypoints/{$this->waypointSymbol}/market";
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return MarketResponse::class;
     }
 
     /**

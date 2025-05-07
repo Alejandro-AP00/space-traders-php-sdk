@@ -7,6 +7,7 @@ use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemWaypointsResponse;
 
 /**
  * get-system-waypoints
@@ -41,5 +42,10 @@ class GetSystemWaypoints extends Request implements Paginatable
     public function defaultQuery(): array
     {
         return array_filter(['type' => $this->type, 'traits' => $this->traits]);
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return SystemWaypointsResponse::class;
     }
 }

@@ -14,6 +14,14 @@ use AlejandroAPorras\SpaceTraders\Requests\Systems\GetSystemWaypoints;
 use AlejandroAPorras\SpaceTraders\Requests\Systems\GetWaypoint;
 use AlejandroAPorras\SpaceTraders\Requests\Systems\SupplyConstruction;
 use AlejandroAPorras\SpaceTraders\Resource;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\ConstructionResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\JumpGateResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\MarketResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\ShipyardResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SupplyConstructionResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemsResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\WaypointResponse;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\PaginationPlugin\Paginator;
@@ -25,13 +33,13 @@ class Systems extends Resource
      */
     public function getSystems(): PagedPaginator
     {
-        return $this->connector->paginate(new GetSystems);
+        return $this->connector->paginate(new GetSystems, SystemsResponse::class);
     }
 
     /**
      * @param  string  $systemSymbol  The system symbol
      */
-    public function getSystem(string $systemSymbol): Response
+    public function getSystem(string $systemSymbol): SystemResponse
     {
         return $this->connector->send(new GetSystem($systemSymbol));
     }
@@ -55,7 +63,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function getWaypoint(string $systemSymbol, string $waypointSymbol): Response
+    public function getWaypoint(string $systemSymbol, string $waypointSymbol): WaypointResponse
     {
         return $this->connector->send(new GetWaypoint($systemSymbol, $waypointSymbol));
     }
@@ -64,7 +72,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function getMarket(string $systemSymbol, string $waypointSymbol): Response
+    public function getMarket(string $systemSymbol, string $waypointSymbol): MarketResponse
     {
         return $this->connector->send(new GetMarket($systemSymbol, $waypointSymbol));
     }
@@ -73,7 +81,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function getShipyard(string $systemSymbol, string $waypointSymbol): Response
+    public function getShipyard(string $systemSymbol, string $waypointSymbol): ShipyardResponse
     {
         return $this->connector->send(new GetShipyard($systemSymbol, $waypointSymbol));
     }
@@ -82,7 +90,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function getJumpGate(string $systemSymbol, string $waypointSymbol): Response
+    public function getJumpGate(string $systemSymbol, string $waypointSymbol): JumpGateResponse
     {
         return $this->connector->send(new GetJumpGate($systemSymbol, $waypointSymbol));
     }
@@ -91,7 +99,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function getConstruction(string $systemSymbol, string $waypointSymbol): Response
+    public function getConstruction(string $systemSymbol, string $waypointSymbol): ConstructionResponse
     {
         return $this->connector->send(new GetConstruction($systemSymbol, $waypointSymbol));
     }
@@ -100,7 +108,7 @@ class Systems extends Resource
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
      */
-    public function supplyConstruction(string $systemSymbol, string $waypointSymbol, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): Response
+    public function supplyConstruction(string $systemSymbol, string $waypointSymbol, string $shipSymbol, TradeGoodSymbol $tradeSymbol, int $units): SupplyConstructionResponse
     {
         return $this->connector->send(new SupplyConstruction($systemSymbol, $waypointSymbol, $shipSymbol, $tradeSymbol, $units));
     }

@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\JumpGateResponse;
 
 /**
  * get-jump-gate
@@ -30,4 +31,9 @@ class GetJumpGate extends Request
         protected string $systemSymbol,
         protected string $waypointSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return JumpGateResponse::class;
+    }
 }

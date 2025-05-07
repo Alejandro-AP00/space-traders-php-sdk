@@ -10,7 +10,7 @@ class ConstructionData extends DataResource
     public string $symbol;
 
     /**
-     * @var ConstructionMaterial[]
+     * @var ConstructionMaterialData[]
      */
     public array $materials;
 
@@ -20,6 +20,6 @@ class ConstructionData extends DataResource
     {
         parent::__construct($attributes, $spaceTraders);
 
-        $this->materials = $this->transformCollection($this->materials ?: [], ConstructionMaterial::class);
+        $this->materials = $this->transformCollection($this->materials ?: [], ConstructionMaterialData::class);
     }
 }

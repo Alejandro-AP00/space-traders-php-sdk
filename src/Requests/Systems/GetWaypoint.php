@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\WaypointResponse;
 
 /**
  * get-waypoint
@@ -30,4 +31,9 @@ class GetWaypoint extends Request
         protected string $systemSymbol,
         protected string $waypointSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return WaypointResponse::class;
+    }
 }
