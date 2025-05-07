@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Modules;
+namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Mounts;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;

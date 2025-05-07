@@ -1,6 +1,6 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Modules;
+namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Mounts;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
