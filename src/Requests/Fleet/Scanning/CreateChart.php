@@ -2,9 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Scanning;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Scanning\ChartResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -16,8 +18,10 @@ use Saloon\Traits\Body\HasJsonBody;
  * uncharted by default. These waypoints have their traits hidden until they have been charted by a
  * ship.
  *
- * Charting a waypoint will record your agent as the one who created the chart, and all other
- * agents would also be able to see the waypoint's traits.
+ * Charting a waypoint will record your agent as the discoverer.
+ *
+ * If the waypoint is already
+ * charted, you will not gain any new information by charting it again.
  */
 class CreateChart extends Request implements HasBody
 {
@@ -36,4 +40,9 @@ class CreateChart extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return ChartResponse::class;
+    }
 }

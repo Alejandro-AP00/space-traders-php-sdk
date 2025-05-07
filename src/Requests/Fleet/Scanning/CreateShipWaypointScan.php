@@ -2,9 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Scanning;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Scanning\ShipWaypointScanResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -36,4 +38,9 @@ class CreateShipWaypointScan extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return ShipWaypointScanResponse::class;
+    }
 }

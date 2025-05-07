@@ -4,7 +4,6 @@ namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\DepositSize;
-use AlejandroAPorras\SpaceTraders\Resources\SurveyDepositData;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 
 class SurveyData extends DataResource
@@ -14,7 +13,7 @@ class SurveyData extends DataResource
     public string $symbol;
 
     /**
-     * @var SurveyDeposit[]
+     * @var SurveyDepositData[]
      */
     public array $deposits;
 
@@ -26,6 +25,8 @@ class SurveyData extends DataResource
     {
         parent::__construct($attributes, $spaceTraders);
 
-        $this->deposits = $this->transformCollection($this->deposits ?: [], SurveyDepositData::class);
+        if (isset($this->deposits)) {
+            $this->deposits = $this->transformCollection($this->deposits, SurveyDepositData::class);
+        }
     }
 }

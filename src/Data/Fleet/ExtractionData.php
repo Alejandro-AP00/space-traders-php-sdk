@@ -4,7 +4,9 @@ namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 
-class SurveyDepositData extends DataResource
+class ExtractionData extends DataResource
 {
-    public string $symbol;
+    public string $shipSymbol;
+
+    public ExtractionYieldData $yield;
 }
