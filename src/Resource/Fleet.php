@@ -45,8 +45,16 @@ use AlejandroAPorras\SpaceTraders\Requests\Fleet\Scanning\CreateShipSystemScan;
 use AlejandroAPorras\SpaceTraders\Requests\Fleet\Scanning\CreateShipWaypointScan;
 use AlejandroAPorras\SpaceTraders\Requests\Fleet\Scanning\CreateSurvey;
 use AlejandroAPorras\SpaceTraders\Resource;
+use AlejandroAPorras\SpaceTraders\Responses;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\DockShipResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\OrbitShipResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\JumpShipResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\NavigateShipResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\ShipNavResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\PatchShipNavResponse;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\WarpShipResponse;
 
 class Fleet extends Resource
 {
@@ -83,7 +91,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The symbol of the ship.
      */
-    public function orbitShip(string $shipSymbol): Response
+    public function orbitShip(string $shipSymbol): OrbitShipResponse
     {
         return $this->connector->send(new OrbitShip($shipSymbol));
     }
@@ -115,7 +123,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The symbol of the ship.
      */
-    public function dockShip(string $shipSymbol): Response
+    public function dockShip(string $shipSymbol): DockShipResponse
     {
         return $this->connector->send(new DockShip($shipSymbol));
     }
@@ -163,7 +171,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The ship symbol.
      */
-    public function jumpShip(string $shipSymbol, string $waypointSymbol): Response
+    public function jumpShip(string $shipSymbol, string $waypointSymbol): JumpShipResponse
     {
         return $this->connector->send(new JumpShip($shipSymbol, $waypointSymbol));
     }
@@ -171,7 +179,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The ship symbol.
      */
-    public function navigateShip(string $shipSymbol, string $waypointSymbol): Response
+    public function navigateShip(string $shipSymbol, string $waypointSymbol): NavigateShipResponse
     {
         return $this->connector->send(new NavigateShip($shipSymbol, $waypointSymbol));
     }
@@ -179,7 +187,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The ship symbol.
      */
-    public function getShipNav(string $shipSymbol): Response
+    public function getShipNav(string $shipSymbol): ShipNavResponse
     {
         return $this->connector->send(new GetShipNav($shipSymbol));
     }
@@ -187,7 +195,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The ship symbol.
      */
-    public function patchShipNav(string $shipSymbol, ShipNavFlightMode $flightMode): Response
+    public function patchShipNav(string $shipSymbol, ShipNavFlightMode $flightMode): PatchShipNavResponse
     {
         return $this->connector->send(new PatchShipNav($shipSymbol, $flightMode));
     }
@@ -195,7 +203,7 @@ class Fleet extends Resource
     /**
      * @param  string  $shipSymbol  The ship symbol.
      */
-    public function warpShip(string $shipSymbol, string $waypointSymbol): Response
+    public function warpShip(string $shipSymbol, string $waypointSymbol): WarpShipResponse
     {
         return $this->connector->send(new WarpShip($shipSymbol, $waypointSymbol));
     }

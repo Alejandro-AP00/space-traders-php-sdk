@@ -2,21 +2,25 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\WarpShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * warp-ship
  *
  * Warp your ship to a target destination in another system. The ship must be in orbit to use this
- * function and must have the `Warp Drive` module installed. Warping will consume the necessary fuel
- * from the ship's manifest.
+ * function and must have the correct drive installed that allows it to execute warps.
  *
- * The returned response will detail the route information including the
- * expected time of arrival. Most ship actions are unavailable until the ship has arrived at its
- * destination.
+ * The ship will
+ * consume fuel based on the distance to the target system. The ship will arrive several seconds later
+ * based on the time it takes to reach the destination system.
+ *
+ * During warp your ship will be
+ * vulnerable to attacks in the system you are warping to.
  */
 class WarpShip extends Request implements HasBody
 {
@@ -42,5 +46,10 @@ class WarpShip extends Request implements HasBody
         return [
             'waypointSymbol' => $this->waypointSymbol,
         ];
+    }
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return WarpShipResponse::class;
     }
 }

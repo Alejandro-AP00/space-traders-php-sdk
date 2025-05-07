@@ -2,20 +2,25 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\JumpShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * jump-ship
  *
- * Jump your ship instantly to a target connected waypoint. The ship must be in orbit to execute a
- * jump.
+ * Jump your ship instantly to a target system. The ship must be in orbit to use this function, and
+ * must have the correct drive installed that allows it to jump between systems.
  *
- * A unit of antimatter is purchased and consumed from the market when jumping. The price of
- * antimatter is determined by the market and is subject to change. A ship can only jump to connected
- * waypoints
+ * When used while in orbit
+ * of a Jump Gate waypoint, this command allows your ship to jump to any system connected to that Jump
+ * Gate.
+ *
+ * When used elsewhere, this command allows your ship to jump to any system within range of your
+ * ship's inbuilt drives.
  */
 class JumpShip extends Request implements HasBody
 {
@@ -41,5 +46,10 @@ class JumpShip extends Request implements HasBody
         return [
             'waypointSymbol' => $this->waypointSymbol,
         ];
+    }
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return JumpShipResponse::class;
     }
 }

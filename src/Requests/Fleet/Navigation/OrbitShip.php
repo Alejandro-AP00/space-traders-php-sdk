@@ -2,9 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\OrbitShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -37,4 +39,9 @@ class OrbitShip extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return OrbitShipResponse::class;
+    }
 }

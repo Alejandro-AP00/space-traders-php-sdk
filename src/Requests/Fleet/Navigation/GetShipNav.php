@@ -2,8 +2,10 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\ShipNavResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 
 /**
  * get-ship-nav
@@ -25,4 +27,9 @@ class GetShipNav extends Request
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return ShipNavResponse::class;
+    }
 }

@@ -2,9 +2,11 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\NavigateShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -45,5 +47,10 @@ class NavigateShip extends Request implements HasBody
         return [
             'waypointSymbol' => $this->waypointSymbol,
         ];
+    }
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return NavigateShipResponse::class;
     }
 }

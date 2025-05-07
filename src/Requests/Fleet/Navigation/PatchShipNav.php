@@ -3,9 +3,11 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Navigation;
 
 use AlejandroAPorras\SpaceTraders\Enums\ShipNavFlightMode;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation\PatchShipNavResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
@@ -32,7 +34,7 @@ class PatchShipNav extends Request implements HasBody
      */
     public function __construct(
         protected string $shipSymbol,
-        protected ShipNavFlightMode $flightMode,
+        protected ShipNavFlightMode $flightMode
     ) {}
 
     protected function defaultBody(): array
@@ -40,5 +42,10 @@ class PatchShipNav extends Request implements HasBody
         return [
             'flightMode' => $this->flightMode->value,
         ];
+    }
+
+    public function createDtoFromResponse(Response $response): mixed
+    {
+        return PatchShipNavResponse::class;
     }
 }
