@@ -7,7 +7,7 @@ use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 
-class Waypoint extends DataResource
+class WaypointData extends DataResource
 {
     public string $symbol;
 

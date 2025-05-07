@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "1278",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:32:23 GMT",
+        "Etag": "W/\"4fe-TK67BM7S7Jj07CYN09Gx0D/qvIs\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "1",
+        "X-Ratelimit-Reset": "2025-05-06T01:32:25.682Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":{\"symbol\":\"X1-OE-PM\",\"exports\":[{\"symbol\":\"FOOD\",\"name\":\"Food\",\"description\":\"Food commodities.\"},{\"symbol\":\"MACHINERY\",\"name\":\"Machinery\",\"description\":\"Machinery and mechanical parts.\"}],\"imports\":[{\"symbol\":\"METALS\",\"name\":\"Metals\",\"description\":\"Refined metals.\"},{\"symbol\":\"FUEL\",\"name\":\"Fuel\",\"description\":\"Fuel and reactor materials.\"}],\"exchange\":[{\"symbol\":\"CONTRACTS\",\"name\":\"Contracts\",\"description\":\"Contract documents and records.\"}],\"transactions\":[{\"waypointSymbol\":\"X1-OE-PM\",\"shipSymbol\":\"COSMIC-1\",\"tradeSymbol\":\"METALS\",\"type\":\"PURCHASE\",\"units\":10,\"pricePerUnit\":50,\"totalPrice\":500,\"timestamp\":\"2024-01-01T12:00:00.000Z\"}],\"tradeGoods\":[{\"symbol\":\"METALS\",\"tradeVolume\":100,\"supply\":\"MODERATE\",\"purchasePrice\":50,\"sellPrice\":45},{\"symbol\":\"FUEL\",\"tradeVolume\":50,\"supply\":\"ABUNDANT\",\"purchasePrice\":40,\"sellPrice\":35},{\"symbol\":\"MACHINERY\",\"tradeVolume\":75,\"supply\":\"LIMITED\",\"purchasePrice\":60,\"sellPrice\":55},{\"symbol\":\"FOOD\",\"tradeVolume\":200,\"supply\":\"HIGH\",\"purchasePrice\":30,\"sellPrice\":25},{\"symbol\":\"CONTRACTS\",\"tradeVolume\":10,\"supply\":\"SCARCE\",\"purchasePrice\":100,\"sellPrice\":90}]}}",
+    "context": []
+}

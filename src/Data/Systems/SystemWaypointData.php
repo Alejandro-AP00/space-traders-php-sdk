@@ -19,7 +19,7 @@ class SystemWaypointData extends DataResource
     /**
      * @var WaypointOrbital[]
      */
-    public array $orbitals;
+    public array $orbitals = [];
 
     public ?string $orbits = null;
 

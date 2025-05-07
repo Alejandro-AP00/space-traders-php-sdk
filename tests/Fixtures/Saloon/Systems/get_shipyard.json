@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "1578",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:32:23 GMT",
+        "Etag": "W/\"62a-TK67BM7S7Jj07CYN09Gx0D/qvIs\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "1",
+        "X-Ratelimit-Reset": "2025-05-06T01:32:25.682Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":{\"symbol\":\"X1-OE-S1\",\"shipTypes\":[{\"type\":\"SHIP_PROBE\"},{\"type\":\"SHIP_MINING_DRONE\"},{\"type\":\"SHIP_INTERCEPTOR\"}],\"transactions\":[{\"shipSymbol\":\"COSMIC-1\",\"waypointSymbol\":\"X1-OE-S1\",\"agentSymbol\":\"COSMIC\",\"price\":50000,\"shipType\":\"SHIP_MINING_DRONE\",\"timestamp\":\"2024-01-01T12:00:00.000Z\"}],\"ships\":[{\"type\":\"SHIP_PROBE\",\"name\":\"Probe\",\"description\":\"A small, unmanned spacecraft used for exploration and reconnaissance.\",\"purchasePrice\":70000,\"frame\":{\"symbol\":\"FRAME_PROBE\",\"name\":\"Probe\",\"description\":\"A small, unmanned spacecraft frame used for exploration and reconnaissance.\",\"condition\":100,\"moduleSlots\":0,\"mountingPoints\":0,\"fuelCapacity\":0,\"requirements\":{\"power\":1,\"crew\":0}},\"reactor\":{\"symbol\":\"REACTOR_SOLAR_I\",\"name\":\"Solar Reactor I\",\"description\":\"A basic solar power reactor, generating energy from solar radiation.\",\"condition\":100,\"powerOutput\":3,\"requirements\":{\"crew\":0}},\"engine\":{\"symbol\":\"ENGINE_IMPULSE_DRIVE_I\",\"name\":\"Impulse Drive I\",\"description\":\"A basic low-energy propulsion system that generates thrust for interplanetary travel.\",\"condition\":100,\"speed\":2,\"requirements\":{\"power\":1,\"crew\":0}},\"modules\":[],\"mounts\":[]}],\"modificationsFee\":15}}",
+    "context": []
+}
