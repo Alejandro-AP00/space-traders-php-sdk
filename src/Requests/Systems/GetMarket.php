@@ -2,9 +2,9 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
+use AlejandroAPorras\SpaceTraders\Responses\Systems\MarketResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use AlejandroAPorras\SpaceTraders\Responses\Systems\MarketResponse;
 
 /**
  * get-market

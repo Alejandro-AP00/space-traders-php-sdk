@@ -2,8 +2,8 @@
 
 namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo;
 
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
+use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use AlejandroAPorras\SpaceTraders\Data\Systems\MarketTransactionData;
 use Saloon\Http\Response;
 

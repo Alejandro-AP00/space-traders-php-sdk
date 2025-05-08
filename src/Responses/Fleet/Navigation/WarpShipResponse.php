@@ -23,7 +23,7 @@ class WarpShipResponse extends Response
     {
         $cooldown = $this->json('data.cooldown');
 
-        if (!$cooldown) {
+        if (! $cooldown) {
             return null;
         }
 

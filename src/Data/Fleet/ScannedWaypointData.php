@@ -3,10 +3,10 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Data\Factions\FactionData;
+use AlejandroAPorras\SpaceTraders\Data\Systems\ChartData;
 use AlejandroAPorras\SpaceTraders\Data\Systems\WaypointOrbitalData;
 use AlejandroAPorras\SpaceTraders\Data\Systems\WaypointTraitData;
-use AlejandroAPorras\SpaceTraders\Data\Systems\ChartData;
-use AlejandroAPorras\SpaceTraders\Data\Factions\FactionData;
 use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 

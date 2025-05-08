@@ -5,7 +5,6 @@ namespace AlejandroAPorras\SpaceTraders\Data\Systems;
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\SystemType;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
-use AlejandroAPorras\SpaceTraders\Support\PaginatedResults;
 
 class SystemData extends DataResource
 {

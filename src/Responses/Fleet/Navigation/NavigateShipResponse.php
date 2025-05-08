@@ -2,9 +2,9 @@
 
 namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation;
 
+use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipConditionEventData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipFuelData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipNavData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipConditionEventData;
 use Saloon\Http\Response;
 
 class NavigateShipResponse extends Response

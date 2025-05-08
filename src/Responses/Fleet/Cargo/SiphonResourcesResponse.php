@@ -2,9 +2,9 @@
 
 namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo;
 
-use AlejandroAPorras\SpaceTraders\Data\Fleet\SiphonData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use AlejandroAPorras\SpaceTraders\Data\CooldownData;
+use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
+use AlejandroAPorras\SpaceTraders\Data\Fleet\SiphonData;
 use Saloon\Http\Response;
 
 class SiphonResourcesResponse extends Response

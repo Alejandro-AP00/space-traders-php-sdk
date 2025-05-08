@@ -3,11 +3,11 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SupplyConstructionResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
-use AlejandroAPorras\SpaceTraders\Responses\Systems\SupplyConstructionResponse;
 
 /**
  * supply-construction

@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Systems;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
-use AlejandroAPorras\SpaceTraders\Data\Systems\MarketTradeGoodData;
 use AlejandroAPorras\SpaceTraders\Data\TradeGoodData;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 

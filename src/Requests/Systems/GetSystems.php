@@ -2,10 +2,10 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
-use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemsResponse;
 
 /**
  * get-systems

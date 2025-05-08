@@ -4,10 +4,10 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Systems;
 
 use AlejandroAPorras\SpaceTraders\Enums\WaypointTraitSymbol;
 use AlejandroAPorras\SpaceTraders\Enums\WaypointType;
+use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemWaypointsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
-use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemWaypointsResponse;
 
 /**
  * get-system-waypoints

@@ -1,6 +1,7 @@
 <?php
 
 namespace AlejandroAPorras\SpaceTraders\Data\Systems;
+
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 use AlejandroAPorras\SpaceTraders\Enums\TransactionType;

@@ -22,7 +22,6 @@ use AlejandroAPorras\SpaceTraders\Responses\Systems\SupplyConstructionResponse;
 use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemResponse;
 use AlejandroAPorras\SpaceTraders\Responses\Systems\SystemsResponse;
 use AlejandroAPorras\SpaceTraders\Responses\Systems\WaypointResponse;
-use Saloon\Http\Response;
 use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\PaginationPlugin\Paginator;
 
