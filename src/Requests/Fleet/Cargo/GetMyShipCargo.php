@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\ShipCargoResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,4 +26,9 @@ class GetMyShipCargo extends Request
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return ShipCargoResponse::class;
+    }
 }

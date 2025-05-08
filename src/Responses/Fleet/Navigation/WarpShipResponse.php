@@ -19,14 +19,8 @@ class WarpShipResponse extends Response
         return new ShipFuelData($this->json('data.fuel'), $this->getConnector());
     }
 
-    public function cooldown(): ?CooldownData
+    public function cooldown(): CooldownData
     {
-        $cooldown = $this->json('data.cooldown');
-
-        if (! $cooldown) {
-            return null;
-        }
-
-        return new CooldownData($cooldown, $this->getConnector());
+        return new CooldownData($this->json('data.cooldown'), $this->getConnector());
     }
 }

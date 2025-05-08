@@ -5,6 +5,7 @@ namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Scanning;
 use AlejandroAPorras\SpaceTraders\Data\CooldownData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ScannedSystem;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ScannedSystemData;
+use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 
 class ShipSystemScanResponse extends Response
@@ -19,13 +20,8 @@ class ShipSystemScanResponse extends Response
      *
      * @return array<ScannedSystem>
      */
-    public function systems(): array
+    public function systems(): Collection
     {
-        $data = $this->json('data.systems');
-
-        return array_map(
-            fn (array $system) => new ScannedSystemData($system, $this->getConnector()),
-            $data
-        );
+        return collect($this->json('data.systems'))->map(fn (array $system) => new ScannedSystemData($system, $this->getConnector()));
     }
 }

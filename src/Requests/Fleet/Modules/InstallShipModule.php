@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Modules;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Modules\InstallShipModuleResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -36,5 +37,10 @@ class InstallShipModule extends Request implements HasBody
         return [
             'symbol' => $this->symbol,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return InstallShipModuleResponse::class;
     }
 }

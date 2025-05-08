@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
 use AlejandroAPorras\SpaceTraders\Enums\ProduceType;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\ShipRefineResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -42,5 +43,10 @@ class ShipRefine extends Request implements HasBody
         return [
             'produce' => $this->produce->value,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return ShipRefineResponse::class;
     }
 }

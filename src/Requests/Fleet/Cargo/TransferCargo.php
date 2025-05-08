@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\TransferCargoResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -48,5 +49,10 @@ class TransferCargo extends Request implements HasBody
             'units' => $this->units,
             'shipSymbol' => $this->transferToShipSymbol,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return TransferCargoResponse::class;
     }
 }

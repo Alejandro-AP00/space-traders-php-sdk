@@ -40,7 +40,7 @@ class DockShip extends Request implements HasBody
         protected string $shipSymbol,
     ) {}
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return DockShipResponse::class;
     }

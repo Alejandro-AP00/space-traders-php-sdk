@@ -48,7 +48,7 @@ class JumpShip extends Request implements HasBody
         ];
     }
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return JumpShipResponse::class;
     }

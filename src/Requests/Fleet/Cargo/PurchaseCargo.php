@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\PurchaseCargoResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -49,5 +50,10 @@ class PurchaseCargo extends Request implements HasBody
             'symbol' => $this->tradeGood->value,
             'units' => $this->units,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return PurchaseCargoResponse::class;
     }
 }

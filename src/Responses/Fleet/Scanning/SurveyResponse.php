@@ -4,6 +4,7 @@ namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Scanning;
 
 use AlejandroAPorras\SpaceTraders\Data\CooldownData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\SurveyData;
+use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 
 class SurveyResponse extends Response
@@ -18,13 +19,8 @@ class SurveyResponse extends Response
      *
      * @return array<SurveyData>
      */
-    public function surveys(): array
+    public function surveys(): Collection
     {
-        $data = $this->json('data.surveys');
-
-        return array_map(
-            fn (array $survey) => new SurveyData($survey, $this->getConnector()),
-            $data
-        );
+        return collect($this->json('data.surveys'))->map(fn (array $survey) => new SurveyData($survey, $this->getConnector()));
     }
 }

@@ -44,7 +44,7 @@ class PatchShipNav extends Request implements HasBody
         ];
     }
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return PatchShipNavResponse::class;
     }

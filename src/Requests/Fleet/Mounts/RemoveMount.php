@@ -43,4 +43,9 @@ class RemoveMount extends Request implements HasBody
             'symbol' => $this->symbol,
         ];
     }
+
+    public function resolveResponseClass(): string
+    {
+        return RemoveMount::class;
+    }
 }

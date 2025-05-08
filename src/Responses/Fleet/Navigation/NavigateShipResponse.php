@@ -5,6 +5,7 @@ namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Navigation;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipConditionEventData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipFuelData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipNavData;
+use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 
 class NavigateShipResponse extends Response
@@ -22,13 +23,8 @@ class NavigateShipResponse extends Response
     /**
      * @return ShipConditionEventData[]
      */
-    public function events(): array
+    public function events(): Collection
     {
-        $data = $this->json('data.events') ?? [];
-
-        return array_map(
-            fn (array $event) => new ShipConditionEventData($event, $this->getConnector()),
-            $data
-        );
+        return collect($this->json('data.events'))->map(fn (array $event) => new ShipConditionEventData($event, $this->getConnector()));
     }
 }

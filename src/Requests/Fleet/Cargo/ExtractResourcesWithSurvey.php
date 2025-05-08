@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
 use AlejandroAPorras\SpaceTraders\Enums\DepositSize;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\ExtractResourcesWithSurveyResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -52,5 +53,10 @@ class ExtractResourcesWithSurvey extends Request implements HasBody
             'expiration' => $this->expiration,
             'size' => $this->size->value,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return ExtractResourcesWithSurveyResponse::class;
     }
 }

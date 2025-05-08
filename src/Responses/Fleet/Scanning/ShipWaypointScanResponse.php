@@ -5,6 +5,7 @@ namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Scanning;
 use AlejandroAPorras\SpaceTraders\Data\CooldownData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ScannedWaypoint;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ScannedWaypointData;
+use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 
 class ShipWaypointScanResponse extends Response
@@ -19,13 +20,8 @@ class ShipWaypointScanResponse extends Response
      *
      * @return array<ScannedWaypoint>
      */
-    public function waypoints(): array
+    public function waypoints(): Collection
     {
-        $data = $this->json('data.waypoints');
-
-        return array_map(
-            fn (array $waypoint) => new ScannedWaypointData($waypoint, $this->getConnector()),
-            $data
-        );
+        return collect($this->json('data.waypoints'))->map(fn (array $waypoint) => new ScannedWaypointData($waypoint, $this->getConnector()));
     }
 }

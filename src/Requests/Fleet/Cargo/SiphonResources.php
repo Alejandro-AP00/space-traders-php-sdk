@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\SiphonResourcesResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -32,4 +33,9 @@ class SiphonResources extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return SiphonResourcesResponse::class;
+    }
 }

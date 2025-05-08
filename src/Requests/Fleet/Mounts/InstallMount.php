@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Mounts;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Modules\InstallMountResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -42,5 +43,10 @@ class InstallMount extends Request implements HasBody
         return [
             'symbol' => $this->symbol,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return InstallMountResponse::class;
     }
 }

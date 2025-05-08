@@ -28,7 +28,7 @@ class GetShipNav extends Request
         protected string $shipSymbol,
     ) {}
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return ShipNavResponse::class;
     }

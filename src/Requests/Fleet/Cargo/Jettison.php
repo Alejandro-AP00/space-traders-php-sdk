@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Cargo;
 
 use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo\JettisonResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -39,5 +40,10 @@ class Jettison extends Request implements HasBody
             'symbol' => $this->symbol->value,
             'units' => $this->units,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return JettisonResponse::class;
     }
 }
