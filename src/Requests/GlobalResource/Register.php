@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\GlobalResource;
 
+use AlejandroAPorras\SpaceTraders\Responses\Globals\RegisterAgentResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -45,4 +46,9 @@ class Register extends Request implements HasBody
     }
 
     public function __construct() {}
+
+    public function resolveResponseClass(): ?string
+    {
+        return RegisterAgentResponse::class;
+    }
 }

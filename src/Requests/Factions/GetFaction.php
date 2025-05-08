@@ -29,7 +29,7 @@ class GetFaction extends Request
         protected FactionSymbol $factionSymbol,
     ) {}
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return FactionResponse::class;
     }

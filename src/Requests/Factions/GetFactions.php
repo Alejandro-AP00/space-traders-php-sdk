@@ -28,7 +28,7 @@ class GetFactions extends Request implements Paginatable
      */
     public function __construct() {}
 
-    public function createDtoFromResponse(Response $response): mixed
+    public function resolveResponseClass(): string
     {
         return FactionsResponse::class;
     }

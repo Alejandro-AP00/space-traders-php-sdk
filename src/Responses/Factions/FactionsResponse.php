@@ -4,22 +4,19 @@ namespace AlejandroAPorras\SpaceTraders\Responses\Factions;
 
 use AlejandroAPorras\SpaceTraders\Data\Factions\FactionData;
 use AlejandroAPorras\SpaceTraders\Data\MetaData;
+use AlejandroAPorras\SpaceTraders\Traits\HasMetaData;
+use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 
 class FactionsResponse extends Response
 {
-    public function factions(): array
-    {
-        $data = $this->json('data');
+    use HasMetaData;
 
-        return array_map(
-            fn (array $faction) => new FactionData($faction, $this->getConnector()),
-            $data
-        );
-    }
-
-    public function meta(): MetaData
+    /**
+     * @return Collection<int, FactionData>
+     */
+    public function factions(): Collection
     {
-        return new MetaData($this->json('meta'), $this->getConnector());
+        return collect($this->json('data'))->map(fn (array $faction) => new FactionData($faction, $this->getConnector()));
     }
 }

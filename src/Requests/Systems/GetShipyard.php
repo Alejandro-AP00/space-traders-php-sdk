@@ -22,11 +22,6 @@ class GetShipyard extends Request
         return "/systems/{$this->systemSymbol}/waypoints/{$this->waypointSymbol}/shipyard";
     }
 
-    public function resolveResponseClass(): string
-    {
-        return ShipyardResponse::class;
-    }
-
     /**
      * @param  string  $systemSymbol  The system symbol
      * @param  string  $waypointSymbol  The waypoint symbol
@@ -35,4 +30,10 @@ class GetShipyard extends Request
         protected string $systemSymbol,
         protected string $waypointSymbol,
     ) {}
+
+
+    public function resolveResponseClass(): string
+    {
+        return ShipyardResponse::class;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\GlobalResource;
 
+use AlejandroAPorras\SpaceTraders\Responses\Globals\StatusResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -22,4 +23,9 @@ class GetStatus extends Request
     }
 
     public function __construct() {}
+
+    public function resolveResponseClass(): ?string
+    {
+        return StatusResponse::class;
+    }
 }

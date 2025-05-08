@@ -16,7 +16,6 @@ class ContractsResponse extends Response
      */
     public function contracts(): Collection
     {
-        return collect($this->json('data'))->map(fn (array $contract) => new ContractData($contract, $this->getConnector())
-        );
+        return collect($this->json('data'))->map(fn (array $contract) => new ContractData($contract, $this->getConnector()));
     }
 }
