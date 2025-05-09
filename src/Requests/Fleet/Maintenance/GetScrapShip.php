@@ -1,7 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Requests\Fleet;
+namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\GetScrapShipResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,4 +26,10 @@ class GetScrapShip extends Request
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+
+    public function resolveResponseClass(): string
+    {
+        return GetScrapShipResponse::class;
+    }
 }

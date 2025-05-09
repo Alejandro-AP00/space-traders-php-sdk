@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\RefuelShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -47,5 +48,10 @@ class RefuelShip extends Request implements HasBody
             'units' => $this->units,
             'fromCargo' => $this->fromCargo,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return RefuelShipResponse::class;
     }
 }

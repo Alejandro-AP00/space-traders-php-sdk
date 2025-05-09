@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\ShipCooldownResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -33,4 +34,9 @@ class GetShipCooldown extends Request
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return ShipCooldownResponse::class;
+    }
 }

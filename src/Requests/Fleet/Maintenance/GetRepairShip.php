@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\GetRepairShipResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -25,4 +26,9 @@ class GetRepairShip extends Request
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return GetRepairShipResponse::class;
+    }
 }

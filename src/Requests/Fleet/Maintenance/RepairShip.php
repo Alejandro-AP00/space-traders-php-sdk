@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\RepairShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -31,4 +32,10 @@ class RepairShip extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+
+    public function resolveResponseClass(): string
+    {
+        return RepairShipResponse::class;
+    }
 }

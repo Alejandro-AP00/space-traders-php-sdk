@@ -6,6 +6,7 @@ use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
 use AlejandroAPorras\SpaceTraders\Data\CooldownData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ExtractionData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
+use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModificationTransactionData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModuleData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipMountData;
 use AlejandroAPorras\SpaceTraders\Data\Systems\MarketTransactionData;
@@ -24,9 +25,9 @@ class InstallMountResponse extends Response
         return new ShipCargoData($this->json('data.cargo'), $this->getConnector());
     }
 
-    public function transaction(): MarketTransactionData
+    public function transaction(): ShipModificationTransactionData
     {
-        return new MarketTransactionData($this->json('data.transaction'), $this->getConnector());
+        return new ShipModificationTransactionData($this->json('data.transaction'), $this->getConnector());
     }
 
     public function agent(): AgentData

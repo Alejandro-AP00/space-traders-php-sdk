@@ -1,7 +1,8 @@
 <?php
 
-namespace AlejandroAPorras\SpaceTraders\Requests\Fleet;
+namespace AlejandroAPorras\SpaceTraders\Requests\Fleet\Maintenance;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\ScrapShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -31,4 +32,10 @@ class ScrapShip extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+
+    public function resolveResponseClass(): string
+    {
+        return ScrapShipResponse::class;
+    }
 }
