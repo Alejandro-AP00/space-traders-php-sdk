@@ -125,8 +125,8 @@ class SpaceTraders extends Connector implements HasPagination
     protected function resolveLimits(): array
     {
         return [
-            Limit::allow(2)->everySeconds(1),
-            Limit::allow(30)->everyMinute(),
+            Limit::allow(2)->everySeconds(1)->sleep(),
+            Limit::allow(30)->everyMinute()->sleep(),
         ];
     }
 
