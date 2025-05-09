@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Enums\ShipCrewRotation;
 
 class ShipCrewData extends DataResource
 {
@@ -12,7 +13,7 @@ class ShipCrewData extends DataResource
 
     public int $capacity;
 
-    public string $rotation;
+    public ShipCrewRotation $rotation;
 
     public int $morale;
 

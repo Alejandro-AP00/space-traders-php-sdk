@@ -3,11 +3,12 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Enums\ShipMountSymbol;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
 
 class ShipMountData extends DataResource
 {
-    public string $symbol;
+    public ShipMountSymbol $symbol;
 
     public string $name;
 

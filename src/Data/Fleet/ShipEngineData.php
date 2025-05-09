@@ -3,18 +3,23 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Enums\ShipEngineSymbol;
 
 class ShipEngineData extends DataResource
 {
-    public string $symbol;
+    public ShipEngineSymbol $symbol;
 
     public string $name;
 
     public string $description;
 
-    public int $condition;
+    public float $condition;
+
+    public float $integrity;
 
     public int $speed;
 
     public ShipRequirementsData $requirements;
+
+    public float $quality;
 }

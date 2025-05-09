@@ -11,17 +11,17 @@ class MarketData extends DataResource
     public string $symbol;
 
     /**
-     * @var TradeGood[]
+     * @var TradeGoodData[]
      */
     public array $exports;
 
     /**
-     * @var TradeGood[]
+     * @var TradeGoodData[]
      */
     public array $imports;
 
     /**
-     * @var TradeGood[]
+     * @var TradeGoodData[]
      */
     public array $exchange;
 

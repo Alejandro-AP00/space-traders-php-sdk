@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Data\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
+use AlejandroAPorras\SpaceTraders\Enums\ShipRole;
 
 class ShipRegistrationData extends DataResource
 {
@@ -10,5 +11,5 @@ class ShipRegistrationData extends DataResource
 
     public string $factionSymbol;
 
-    public string $role;
+    public ShipRole $role;
 }

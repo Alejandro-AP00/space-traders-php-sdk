@@ -9,6 +9,7 @@ use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipFrameData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModuleData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipMountData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipReactorData;
+use AlejandroAPorras\SpaceTraders\Enums\ActivityLevel;
 use AlejandroAPorras\SpaceTraders\Enums\ShipType;
 use AlejandroAPorras\SpaceTraders\Enums\SupplyLevel;
 use AlejandroAPorras\SpaceTraders\SpaceTraders;
@@ -22,6 +23,8 @@ class ShipyardShipData extends DataResource
     public string $description;
 
     public SupplyLevel $supply;
+
+    public ActivityLevel $activity;
 
     public int $purchasePrice;
 
