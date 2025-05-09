@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet;
 
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\NegotiateContractResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -39,4 +40,9 @@ class NegotiateContract extends Request implements HasBody
     public function __construct(
         protected string $shipSymbol,
     ) {}
+
+    public function resolveResponseClass(): string
+    {
+        return NegotiateContractResponse::class;
+    }
 }

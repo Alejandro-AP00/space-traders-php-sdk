@@ -3,6 +3,7 @@
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet;
 
 use AlejandroAPorras\SpaceTraders\Enums\ShipType;
+use AlejandroAPorras\SpaceTraders\Responses\Fleet\Maintenance\PurchaseShipResponse;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -38,5 +39,10 @@ class PurchaseShip extends Request implements HasBody
             'shipType' => $this->shipType->value,
             'waypointSymbol' => $this->waypointSymbol,
         ];
+    }
+
+    public function resolveResponseClass(): string
+    {
+        return PurchaseShipResponse::class;
     }
 }

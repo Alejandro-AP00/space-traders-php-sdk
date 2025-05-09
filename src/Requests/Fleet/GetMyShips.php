@@ -2,6 +2,7 @@
 
 namespace AlejandroAPorras\SpaceTraders\Requests\Fleet;
 
+use AlejandroAPorras\SpaceTraders\Responses\Systems\ShipsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
@@ -25,4 +26,9 @@ class GetMyShips extends Request implements Paginatable
      * @param  null|int  $limit  How many entries to return per page
      */
     public function __construct() {}
+
+    public function resolveResponseClass(): string
+    {
+        return ShipsResponse::class;
+    }
 }

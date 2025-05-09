@@ -9,8 +9,6 @@ class ShipyardTransactionData extends DataResource
 {
     public string $waypointSymbol;
 
-    public string $shipSymbol;
-
     public ShipType $shipType;
 
     public int $price;
