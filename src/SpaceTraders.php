@@ -15,6 +15,10 @@ use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\PagedPaginator;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Limit;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
+use Saloon\RateLimitPlugin\Traits\HasRateLimits;
 
 /**
  * SpaceTraders API
@@ -36,6 +40,8 @@ use Saloon\PaginationPlugin\PagedPaginator;
  */
 class SpaceTraders extends Connector implements HasPagination
 {
+    use HasRateLimits;
+
     public function __construct(public readonly string $token) {}
 
     protected function defaultAuth(): TokenAuthenticator
@@ -114,5 +120,18 @@ class SpaceTraders extends Connector implements HasPagination
                 return $request;
             }
         };
+    }
+
+    protected function resolveLimits(): array
+    {
+        return [
+            Limit::allow(2)->everySeconds(1),
+            Limit::allow(30)->everyMinute(),
+        ];
+    }
+
+    protected function resolveRateLimitStore(): RateLimitStore
+    {
+        return new MemoryStore;
     }
 }

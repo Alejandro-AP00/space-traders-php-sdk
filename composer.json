@@ -19,6 +19,7 @@
         "guzzlehttp/guzzle": "^7.8",
         "illuminate/collections": "^12.12",
         "saloonphp/pagination-plugin": "^2.0",
+        "saloonphp/rate-limit-plugin": "^2.0",
         "saloonphp/saloon": "^3.0"
     },
     "require-dev": {
