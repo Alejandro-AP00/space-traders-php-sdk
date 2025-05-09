@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "2213",
+        "Content-Type": "application\/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:41:52 GMT",
+        "Etag": "W\/\"8a5-\/Rtz917GDkgVdRlMIbk9o0PZ8s4\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "1",
+        "X-Ratelimit-Reset": "2025-05-06T01:41:54.696Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":[{\"symbol\":\"AG3NT\",\"headquarters\":\"X1-MN66-A1\",\"credits\":4696823,\"startingFaction\":\"COSMIC\",\"shipCount\":6},{\"symbol\":\"AGENT_002\",\"headquarters\":\"X1-DR44-A1\",\"credits\":175000,\"startingFaction\":\"AEGIS\",\"shipCount\":2},{\"symbol\":\"ALIEN-01\",\"headquarters\":\"X1-CX79-A1\",\"credits\":3562306,\"startingFaction\":\"COSMIC\",\"shipCount\":36},{\"symbol\":\"ALKIELIZARD\",\"headquarters\":\"X1-ZY51-A1\",\"credits\":1801292,\"startingFaction\":\"OBSIDIAN\",\"shipCount\":24},{\"symbol\":\"ALOGIC_040525\",\"headquarters\":\"X1-YV95-A1\",\"credits\":25306,\"startingFaction\":\"OMEGA\",\"shipCount\":10},{\"symbol\":\"BLEDE\",\"headquarters\":\"X1-Z44-A1\",\"credits\":175000,\"startingFaction\":\"ECHO\",\"shipCount\":2},{\"symbol\":\"BOBBY\",\"headquarters\":\"X1-GJ40-A1\",\"credits\":175000,\"startingFaction\":\"ASTRO\",\"shipCount\":2},{\"symbol\":\"CHAMLIS\",\"headquarters\":\"X1-Y12-A1\",\"credits\":61686470,\"startingFaction\":\"GALACTIC\",\"shipCount\":455},{\"symbol\":\"CHAMLIS-DEV1\",\"headquarters\":\"X1-NT89-A1\",\"credits\":19640862,\"startingFaction\":\"ASTRO\",\"shipCount\":73},{\"symbol\":\"CHATS\",\"headquarters\":\"X1-GF42-A1\",\"credits\":175000,\"startingFaction\":\"AEGIS\",\"shipCount\":2},{\"symbol\":\"CHURT-LYNE\",\"headquarters\":\"X1-TV11-A1\",\"credits\":15855999,\"startingFaction\":\"DOMINION\",\"shipCount\":91},{\"symbol\":\"DAEDALUS\",\"headquarters\":\"X1-V30-A1\",\"credits\":175000,\"startingFaction\":\"AEGIS\",\"shipCount\":2},{\"symbol\":\"DAVIDG\",\"headquarters\":\"X1-NR31-A1\",\"credits\":175000,\"startingFaction\":\"AEGIS\",\"shipCount\":2},{\"symbol\":\"DEKA\",\"headquarters\":\"X1-FN8-A1\",\"credits\":175000,\"startingFaction\":\"COSMIC\",\"shipCount\":2},{\"symbol\":\"DERMOT\",\"headquarters\":\"X1-FU13-A1\",\"credits\":175000,\"startingFaction\":\"ECHO\",\"shipCount\":2},{\"symbol\":\"DIEKRUEMMELS\",\"headquarters\":\"X1-VV9-A1\",\"credits\":175000,\"startingFaction\":\"AEGIS\",\"shipCount\":2},{\"symbol\":\"DRAGON_SHIP\",\"headquarters\":\"X1-AX76-A1\",\"credits\":175000,\"startingFaction\":\"ASTRO\",\"shipCount\":2},{\"symbol\":\"DUKELIX\",\"headquarters\":\"X1-TF94-A1\",\"credits\":175000,\"startingFaction\":\"GALACTIC\",\"shipCount\":2},{\"symbol\":\"EARWING\",\"headquarters\":\"X1-PH57-A1\",\"credits\":370976,\"startingFaction\":\"QUANTUM\",\"shipCount\":10},{\"symbol\":\"EIRHR\",\"headquarters\":\"X1-NA63-A1\",\"credits\":68681,\"startingFaction\":\"QUANTUM\",\"shipCount\":5}],\"meta\":{\"total\":65,\"page\":1,\"limit\":20}}",
+    "context": []
+}

@@ -1,0 +1,20 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "Retry-After, X-RateLimit-Type, X-RateLimit-Limit-Burst, X-RateLimit-Limit-Per-Second, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "Content-Length": "1158",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 06 May 2025 01:32:23 GMT",
+        "Etag": "W/\"486-TK67BM7S7Jj07CYN09Gx0D/qvIs\"",
+        "Retry-After": "1",
+        "X-Powered-By": "Express",
+        "X-Ratelimit-Limit-Burst": "30",
+        "X-Ratelimit-Limit-Per-Second": "2",
+        "X-Ratelimit-Remaining": "1",
+        "X-Ratelimit-Reset": "2025-05-06T01:32:25.682Z",
+        "X-Ratelimit-Type": "IP Address"
+    },
+    "data": "{\"data\":[{\"symbol\":\"X1-OE-PM\",\"type\":\"PLANET\",\"systemSymbol\":\"X1-OE\",\"x\":11,\"y\":-38,\"orbitals\":[],\"faction\":{\"symbol\":\"COSMIC\"},\"traits\":[{\"symbol\":\"BREATHABLE_ATMOSPHERE\",\"name\":\"Breathable Atmosphere\",\"description\":\"The waypoint has a breathable atmosphere.\"},{\"symbol\":\"MARKETPLACE\",\"name\":\"Marketplace\",\"description\":\"The waypoint has a marketplace where goods can be bought and sold.\"}],\"modifiers\":[],\"chart\":{\"submittedBy\":\"COSMIC\",\"submittedOn\":\"2024-01-01T00:00:00.000Z\"},\"isUnderConstruction\":false},{\"symbol\":\"X1-OE-A1\",\"type\":\"ASTEROID_FIELD\",\"systemSymbol\":\"X1-OE\",\"x\":27,\"y\":33,\"orbitals\":[],\"traits\":[{\"symbol\":\"MINERAL_DEPOSITS\",\"name\":\"Mineral Deposits\",\"description\":\"The waypoint contains mining deposits.\"},{\"symbol\":\"COMMON_METAL_DEPOSITS\",\"name\":\"Common Metal Deposits\",\"description\":\"The waypoint contains common metal deposits.\"}],\"modifiers\":[],\"chart\":{\"submittedBy\":\"COSMIC\",\"submittedOn\":\"2024-01-01T00:00:00.000Z\"},\"isUnderConstruction\":false}],\"meta\":{\"total\":10,\"page\":1,\"limit\":2}}",
+    "context": []
+}
