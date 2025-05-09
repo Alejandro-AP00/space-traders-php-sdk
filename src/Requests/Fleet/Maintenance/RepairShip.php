@@ -33,7 +33,6 @@ class RepairShip extends Request implements HasBody
         protected string $shipSymbol,
     ) {}
 
-
     public function resolveResponseClass(): string
     {
         return RepairShipResponse::class;

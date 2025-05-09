@@ -31,7 +31,6 @@ class GetShipyard extends Request
         protected string $waypointSymbol,
     ) {}
 
-
     public function resolveResponseClass(): string
     {
         return ShipyardResponse::class;

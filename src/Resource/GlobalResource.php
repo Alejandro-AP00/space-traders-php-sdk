@@ -7,7 +7,6 @@ use AlejandroAPorras\SpaceTraders\Requests\GlobalResource\Register;
 use AlejandroAPorras\SpaceTraders\Resource;
 use AlejandroAPorras\SpaceTraders\Responses\Globals\RegisterAgentResponse;
 use AlejandroAPorras\SpaceTraders\Responses\Globals\StatusResponse;
-use Saloon\Http\Response;
 
 class GlobalResource extends Resource
 {

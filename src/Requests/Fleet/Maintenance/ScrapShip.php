@@ -33,7 +33,6 @@ class ScrapShip extends Request implements HasBody
         protected string $shipSymbol,
     ) {}
 
-
     public function resolveResponseClass(): string
     {
         return ScrapShipResponse::class;

@@ -2,9 +2,6 @@
 
 namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Cargo;
 
-use AlejandroAPorras\SpaceTraders\Data\CooldownData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ExtractionData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModuleData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;

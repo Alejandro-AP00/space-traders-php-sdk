@@ -5,7 +5,6 @@ namespace AlejandroAPorras\SpaceTraders\Requests\Factions;
 use AlejandroAPorras\SpaceTraders\Responses\Factions\FactionsResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Contracts\Paginatable;
 
 /**

@@ -6,7 +6,6 @@ use AlejandroAPorras\SpaceTraders\Enums\FactionSymbol;
 use AlejandroAPorras\SpaceTraders\Responses\Factions\FactionResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Http\Response;
 
 /**
  * get-faction

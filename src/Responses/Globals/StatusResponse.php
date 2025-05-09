@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Responses\Globals;
 
 use AlejandroAPorras\SpaceTraders\Data\SpaceTradersData;
-use AlejandroAPorras\SpaceTraders\Data\Systems\ConstructionData;
 use Saloon\Http\Response;
 
 class StatusResponse extends Response

@@ -3,7 +3,6 @@
 namespace AlejandroAPorras\SpaceTraders\Responses\Factions;
 
 use AlejandroAPorras\SpaceTraders\Data\Factions\FactionData;
-use AlejandroAPorras\SpaceTraders\Data\MetaData;
 use AlejandroAPorras\SpaceTraders\Traits\HasMetaData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;

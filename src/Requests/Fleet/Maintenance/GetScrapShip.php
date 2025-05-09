@@ -27,7 +27,6 @@ class GetScrapShip extends Request
         protected string $shipSymbol,
     ) {}
 
-
     public function resolveResponseClass(): string
     {
         return GetScrapShipResponse::class;

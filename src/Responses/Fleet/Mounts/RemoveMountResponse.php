@@ -3,13 +3,9 @@
 namespace AlejandroAPorras\SpaceTraders\Responses\Fleet\Modules;
 
 use AlejandroAPorras\SpaceTraders\Data\Agents\AgentData;
-use AlejandroAPorras\SpaceTraders\Data\CooldownData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ExtractionData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipCargoData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModificationTransactionData;
-use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipModuleData;
 use AlejandroAPorras\SpaceTraders\Data\Fleet\ShipMountData;
-use AlejandroAPorras\SpaceTraders\Data\Systems\MarketTransactionData;
 use Illuminate\Support\Collection;
 use Saloon\Http\Response;
 

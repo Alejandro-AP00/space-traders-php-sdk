@@ -3,13 +3,15 @@
 namespace AlejandroAPorras\SpaceTraders\Data;
 
 use AlejandroAPorras\SpaceTraders\Contracts\DataResource;
-use AlejandroAPorras\SpaceTraders\Enums\TradeGoodSymbol;
 
 class SpaceTradersData extends DataResource
 {
     public string $status;
+
     public string $version;
+
     public string $resetDate;
+
     public string $description;
 
     /**
